@@ -18,8 +18,8 @@ namespace FormulaOneDll
 {
     public class DbTools
     {
-        private const string WORKINGPATH = @"D:\Dati\";
-        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Dati\FormulaOne.mdf;Integrated Security=True";
+        private const string WORKINGPATH = @"C:\Dati\C#\formula-1-lorenzorosso001\Dati"; //DA CAMBIARE
+        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dati\C#\formula-1-lorenzorosso001\Dati\FormulaOne.mdf;Integrated Security=True";
 
         private Dictionary<int, Driver> drivers;
         private Dictionary<string, Country> countries;
@@ -172,10 +172,15 @@ namespace FormulaOneDll
         }
 
 
-        public void GetDrivers(bool forceReload = false)
+        public Dictionary<int, Driver> GetDrivers(bool forceReload = false)
         {
+            Dictionary<int, Driver> lstDrivers = new Dictionary<int, Driver>();
+
             if (forceReload/* || this.countries == null*/)
+            {
                 this.GetCountries();
+                return lstDrivers; //vuota
+            }
             if (forceReload || this.drivers == null)
             {
                 this.Drivers = new Dictionary<int, Driver>();
@@ -197,11 +202,19 @@ namespace FormulaOneDll
                             Country = Countries[reader.GetString(5)]
                         };
                         this.Drivers.Add(driverIsoCode, d);
+                        lstDrivers.Add(driverIsoCode, d);
                     }
                     con.Close();
                     con.Dispose();
                 }
                 SqlConnection.ClearAllPools();
+
+                return lstDrivers;
+            }
+            else
+            {
+                lstDrivers = this.drivers;
+                return lstDrivers;
             }
         }
 

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormulaOneCrudFormProject",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormulaOneWebFormProject", "FormulaOneWebFormProject\FormulaOneWebFormProject.csproj", "{1D830BD8-A50F-4C00-8F70-D4DB692AA363}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormulaOneWebApi", "FormulaOneWebApi\FormulaOneWebApi.csproj", "{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,14 @@ Global
 		{1D830BD8-A50F-4C00-8F70-D4DB692AA363}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D830BD8-A50F-4C00-8F70-D4DB692AA363}.Release|x64.ActiveCfg = Release|Any CPU
 		{1D830BD8-A50F-4C00-8F70-D4DB692AA363}.Release|x64.Build.0 = Release|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Debug|x64.Build.0 = Debug|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Release|x64.ActiveCfg = Release|Any CPU
+		{1CA2B53B-C39C-4A16-8AD4-5DE3F168BEB7}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
