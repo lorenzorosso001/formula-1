@@ -11,11 +11,11 @@ namespace FormulaOneWebApi.Controllers
     public class DriversController : ApiController
     {
         DbTools db = new DbTools();
-        Dictionary<int, Driver> lstDrivers = new Dictionary<int, Driver>();
+        List<Driver> lstDrivers = new List<Driver>();
         // GET: api/Drivers
-        public IEnumerable<int, Driver> Get()
+        public List <Driver> Get()
         {
-            lstDrivers = db.GetDrivers();
+            lstDrivers = db.GetDriversAsList();
             //da trasformare in lista singola
             return lstDrivers;
         }

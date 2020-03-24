@@ -18,7 +18,7 @@ namespace FormulaOneDll
 {
     public class DbTools
     {
-        private const string WORKINGPATH = @"C:\Dati\C#\formula-1-lorenzorosso001\Dati"; //DA CAMBIARE
+        private const string WORKINGPATH = @"C:\Dati\C#\formula-1-lorenzorosso001\Dati\"; //DA CAMBIARE
         private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dati\C#\formula-1-lorenzorosso001\Dati\FormulaOne.mdf;Integrated Security=True";
 
         private Dictionary<int, Driver> drivers;
@@ -172,14 +172,11 @@ namespace FormulaOneDll
         }
 
 
-        public Dictionary<int, Driver> GetDrivers(bool forceReload = false)
+        public void GetDrivers(bool forceReload = false)
         {
-            Dictionary<int, Driver> lstDrivers = new Dictionary<int, Driver>();
-
             if (forceReload/* || this.countries == null*/)
             {
                 this.GetCountries();
-                return lstDrivers; //vuota
             }
             if (forceReload || this.drivers == null)
             {
@@ -202,23 +199,44 @@ namespace FormulaOneDll
                             Country = Countries[reader.GetString(5)]
                         };
                         this.Drivers.Add(driverIsoCode, d);
-                        lstDrivers.Add(driverIsoCode, d);
                     }
                     con.Close();
                     con.Dispose();
                 }
                 SqlConnection.ClearAllPools();
-
-                return lstDrivers;
-            }
-            else
-            {
-                lstDrivers = this.drivers;
-                return lstDrivers;
             }
         }
 
-        public void LoadTeams()
+        public List<Driver> GetDriversAsList()
+        {
+            List<Driver> lstDrivers = new List<Driver>();
+
+            var con = new SqlConnection(CONNECTION_STRING);
+            using (con)
+            {
+                con.Open();
+                var command = new SqlCommand("SELECT * FROM Drivers;", con);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int Id = reader.GetInt32(0);
+                    string Firstname = reader.GetString(1);
+                    string Lastname = reader.GetString(2);
+                    DateTime Dob = reader.GetDateTime(3);
+                    string PlaceOfBirthday = reader.GetString(4);
+                    Country Country = Countries[reader.GetString(5)];
+                    Driver d = new Driver(Id, Firstname, Lastname, Dob, PlaceOfBirthday, Country);
+                    lstDrivers.Add(d);
+                };            
+                con.Close();
+                con.Dispose();
+            }
+            SqlConnection.ClearAllPools();
+            
+            return lstDrivers;
+        }
+
+            public void LoadTeams()
         {
             GetCountries();
             GetDrivers(true);
