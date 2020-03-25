@@ -11,34 +11,18 @@ namespace FormulaOneWebApi.Controllers
     public class DriversController : ApiController
     {
         DbTools db = new DbTools();
-        List<Driver> lstDrivers = new List<Driver>();
-        // GET: api/Drivers
-        public List <Driver> Get()
+        public IEnumerable<Driver> GetAllDrivers()
         {
-            lstDrivers = db.GetDriversAsList();
-            //da trasformare in lista singola
-            return lstDrivers;
+            db.GetDrivers();
+            return db.Drivers.Values;
         }
-
-        /*// GET: api/Drivers/5
-        public string Get(int id)
+        public IHttpActionResult GetDriver(int id)
         {
-            return "value";
+            db.GetDrivers();
+            if (db.Drivers[id] == null)
+                return NotFound();
+
+            return Ok(db.Drivers[id]);
         }
-
-        // POST: api/Drivers
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Drivers/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Drivers/5
-        public void Delete(int id)
-        {
-        }*/
     }
 }
