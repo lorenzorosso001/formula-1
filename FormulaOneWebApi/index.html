@@ -2,19 +2,82 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>FormulaOne WebApi</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Formula One</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="vue.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
-    <h1>Formula One Web Api</h1>
-    <h3>Clicca un pulsante per caricare la tabella scelta</h3>
-    <input type="button" id="loadDrivers" value="Drivers" />
-    <input type="button" id="loadTeams" value="Teams" />
-    <input type="button" id="loadCountries" value="Countries" />
-    <table id="table">
-        <thead></thead>
-        <tbody></tbody>
-    </table>
+    <div>
+        <h2>Formula One Web Api</h2>
+    </div>
+    <div id="app">
+        <h2>Scegli l'elemento da visualizzare</h2>
+        <input type="button" value="Teams" onclick="loadTeams();" />
+        <input type="button" value="Countries" onclick="loadCountries();" />
+        <input type="button" value="Drivers" onclick="loadDrivers();" />
+        <table v-if="teams.length > 0" id="teamsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>FullTeamName</th>
+                    <th>Country</th>
+                    <th>Power unit</th>
+                    <th>Technical chief</th>
+                    <th>Chassis</th>
+                    <th>First driver</th>
+                    <th>Second driver</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in teams">
+                    <td>{{item.ID}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.FullTeamName}}</td>
+                    <td>{{item.Country.CountryName}}</td>
+                    <td>{{item.PowerUnit}}</td>
+                    <td>{{item.TechnicalChief}}</td>
+                    <td>{{item.Chassis}}</td>
+                    <td>{{item.FirstDriver.Firstname}} {{item.FirstDriver.Lastname}}</td>
+                    <td>{{item.SecondDriver.Firstname}} {{item.SecondDriver.Lastname}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table is-fullwidth is-hoverable" v-if="drivers.length > 0" id="driversTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>DOB</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in drivers">
+                    <td>{{item.ID}}</td>
+                    <td>{{item.Firstname}}</td>
+                    <td>{{item.Lastname}}</td>
+                    <td>{{new Date(item.DOB)}}</td>
+                    <td>{{item.Country.CountryName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table is-fullwidth is-hoverable" v-if="countries.length > 0" id="countryTable">
+            <thead>
+                <tr>
+                    <th>Cod</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in countries">
+                    <td>{{item.CountryCode}}</td>
+                    <td>{{item.CountryName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

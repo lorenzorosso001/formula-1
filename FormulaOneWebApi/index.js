@@ -1,69 +1,71 @@
 ﻿"use strict";
 
+let app;
+
 $(function () {
-    $("#loadDrivers").on("click", function () {
-        let _richiesta = $.ajax({
-            url: "api/drivers",
-            type: "GET",
-            data: "",
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-            dataType: "json",
-            timeout: 5000
-        });
-
-        _richiesta.done(loadTable);
-        _richiesta.fail(error);
+    app = new Vue({
+        el: "#app",
+        data: {
+            teams: [],
+            drivers: [],
+            countries: []
+        }
     });
-    $("#loadTeams").on("click", function () {
-        let _richiesta = $.ajax({
-            url: "api/Teams",
-            type: "GET",
-            data: "",
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-            dataType: "json",
-            timeout: 5000
-        });
-
-        _richiesta.done(loadTable);
-        _richiesta.fail(error);
-    });
-    $("#loadCountries").on("click", function () {
-        let _richiesta = $.ajax({
-            url: "api/Countries",
-            type: "GET",
-            data: "",
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-            dataType: "json",
-            timeout: 5000
-        });
-
-        _richiesta.done(loadTable);
-        _richiesta.fail(error);
-    });
-
-    function loadTable(data) {
-        let tbl_body = "";
-        let tbl_head = "";
-        let odd_even = false;
-        let first = true;
-
-        $.each(data, function () {
-            let tbl_row = "";
-
-            $.each(this, function (k, v) { //key value
-                if (first) { //se è la prima volta creo il thead con le key
-                    tbl_head += "<th>" + k + "</th>";
-                }
-                tbl_row += "<td>" + v + "</td>"; //altrimenti creo la cella con i value
-            });
-            first = false;
-            tbl_body += "<tr class=\"" + (odd_even ? "odd" : "even") + "\">" + tbl_row + "</tr>";
-            odd_even = !odd_even;
-        });
-        $("#table thead").html(tbl_head);
-        $("#table tbody").html(tbl_body);
-    };
 });
+
+function loadDrivers() {
+    let _richiesta = $.ajax({
+        url: "api/drivers",
+        type: "GET",
+        data: "",
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        dataType: "json",
+        timeout: 5000
+    });
+
+    _richiesta.done(data => {
+        app.teams = [];
+        app.countries = [];
+        app.drivers = data;
+    });
+    _richiesta.fail(error);
+}
+
+function loadTeams() {
+    let _richiesta = $.ajax({
+        url: "api/Teams",
+        type: "GET",
+        data: "",
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        dataType: "json",
+        timeout: 5000
+    });
+
+    _richiesta.done(data => {
+        app.teams = data;
+        app.countries = [];
+        app.drivers = [];
+    });
+    _richiesta.fail(error);
+}
+
+function loadCountries() {
+    let _richiesta = $.ajax({
+        url: "api/Countries",
+        type: "GET",
+        data: "",
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        dataType: "json",
+        timeout: 5000
+    });
+
+    _richiesta.done(data => {
+        app.teams = [];
+        app.countries = data;
+        app.drivers = [];
+    });
+    _richiesta.fail(error);
+}
 
 function error(jqXHR, testStatus, strError) {
     if (jqXHR.status === 0)
