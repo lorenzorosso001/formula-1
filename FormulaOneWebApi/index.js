@@ -17,18 +17,56 @@ $(function () {
     let _btnCountryByCode = $('#btnSearchCountryCode');
 
     _btnTeamById.on('click', () => {
-        let id = $('#txtIdTeam').val();
+        let id = $('#txtIdTeam').val() - 1; //id partono da 0!
         //search team by id
+        sendRequest('/Teams/' + id, 'get', (data) => {
+            console.log(data);
+            $('#lstTeams').empty();
+            for(let item in data) {
+                let _li = $('<li>');
+                if (item === "Country")
+                    _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
+                else if (item === "FirstDriver" || item === "SecondDriver")
+                    _li.html(item + " : " + data[item].Lastname + " " + data[item].Firstname);
+                else
+                    _li.html(item + " : " + data[item]);
+                _li.addClass('list-group-item');
+                _li.appendTo($('#lstTeams'));
+            }
+        });
     });
 
     _btnDriverById.on('click', () => {
-        let id = $('#txtIdDriver').val();
+        let id = $('#txtIdDriver').val(); 
         //search driver by id
+        sendRequest('/Drivers/' + id, 'get', (data) => {
+            console.log(data);
+            $('#lstDrivers').empty();
+            for (let item in data) {
+                let _li = $('<li>');
+                if (item === "Country")
+                    _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
+                else
+                    _li.html(item + " : " + data[item]);
+                _li.addClass('list-group-item');
+                _li.appendTo($('#lstDrivers'));
+            }
+        });
     });
 
     _btnCountryByCode.on('click', () => {
-        let id = $('#txtCodeCountry').val();
+        let code = $('#txtCodeCountry').val(); //code
         //search country by code
+        sendRequest('/Countries/' + code, 'get', (data) => {
+            console.log(data);
+            $('#lstCountries').empty();
+            for (let item in data) {
+                let _li = $('<li>');
+                _li.html(item + " : " + data[item]);
+                _li.addClass('list-group-item');
+                _li.appendTo($('#lstCountries'));
+            }
+        });
     });
 });
 
