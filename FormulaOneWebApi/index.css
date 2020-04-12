@@ -1,0 +1,13 @@
+﻿body {
+    color: white;
+    background-color: #203A43;
+}
+
+table {
+    margin-top: 3%;
+}
+
+#btnSearchTeamId, #btnSearchDriverId, #txtCodeCountry
+{
+    margin-top: 3%;
+}

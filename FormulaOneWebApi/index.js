@@ -11,6 +11,25 @@ $(function () {
             countries: []
         }
     });
+
+    let _btnTeamById = $('#btnSearchTeamId');
+    let _btnDriverById = $('#btnSearchDriverId');
+    let _btnCountryByCode = $('#btnSearchCountryCode');
+
+    _btnTeamById.on('click', () => {
+        let id = $('#txtIdTeam').val();
+        //search team by id
+    });
+
+    _btnDriverById.on('click', () => {
+        let id = $('#txtIdDriver').val();
+        //search driver by id
+    });
+
+    _btnCountryByCode.on('click', () => {
+        let id = $('#txtCodeCountry').val();
+        //search country by code
+    });
 });
 
 function loadDrivers() {
