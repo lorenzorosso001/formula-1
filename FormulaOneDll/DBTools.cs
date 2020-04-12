@@ -237,36 +237,36 @@ namespace FormulaOneDll
         }
 
             public void LoadTeams()
-        {
-            GetCountries();
-            GetDrivers(true);
-            teams = new List<Team>();
-            var con = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={WORKINGPATH}FormulaOne.mdf;Integrated Security=True");
-            using (con)
             {
-                con.Open();
-                var command = new SqlCommand("SELECT * FROM Teams;", con);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                GetCountries();
+                GetDrivers(true);
+                teams = new List<Team>();
+                var con = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={WORKINGPATH}FormulaOne.mdf;Integrated Security=True");
+                using (con)
                 {
-                    Team t = new Team()
+                    con.Open();
+                    var command = new SqlCommand("SELECT * FROM Teams;", con);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        FullTeamName = reader.GetString(2),
-                        Country = this.Countries[reader.GetString(3)],
-                        PowerUnit = reader.GetString(4),
-                        TechnicalChief = reader.GetString(5),
-                        Chassis = reader.GetString(6),
-                        FirstDriver = this.Drivers[reader.GetInt32(7)],
-                        SecondDriver = this.Drivers[reader.GetInt32(8)]
-                    };
-                    teams.Add(t);
+                        Team t = new Team()
+                        {
+                            ID = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            FullTeamName = reader.GetString(2),
+                            Country = this.Countries[reader.GetString(3)],
+                            PowerUnit = reader.GetString(4),
+                            TechnicalChief = reader.GetString(5),
+                            Chassis = reader.GetString(6),
+                            FirstDriver = this.Drivers[reader.GetInt32(7)],
+                            SecondDriver = this.Drivers[reader.GetInt32(8)]
+                        };
+                        teams.Add(t);
+                    }
+                    con.Close();
+                    con.Dispose();
                 }
-                con.Close();
-                con.Dispose();
-            }
-            SqlConnection.ClearAllPools();
+                SqlConnection.ClearAllPools();
         }
 
         public bool SerializeToJSON<T>(IEnumerable<T> list, string path)

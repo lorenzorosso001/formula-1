@@ -14,56 +14,40 @@ $(function () {
 });
 
 function loadDrivers() {
-    let _richiesta = $.ajax({
-        url: "api/drivers",
-        type: "GET",
-        data: "",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        dataType: "json",
-        timeout: 5000
-    });
-
-    _richiesta.done(data => {
+    sendRequest("/Drivers", "get", data => {
         app.teams = [];
         app.countries = [];
         app.drivers = data;
     });
-    _richiesta.fail(error);
 }
 
 function loadTeams() {
-    let _richiesta = $.ajax({
-        url: "api/Teams",
-        type: "GET",
-        data: "",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        dataType: "json",
-        timeout: 5000
-    });
-
-    _richiesta.done(data => {
+    sendRequest("/Teams", "get", data => {
         app.teams = data;
         app.countries = [];
         app.drivers = [];
     });
-    _richiesta.fail(error);
 }
 
 function loadCountries() {
+    sendRequest("/Countries", "get", data => {
+        app.teams = [];
+        app.countries = data;
+        app.drivers = [];
+    });
+}
+
+function sendRequest(parameters, method, callback) {
     let _richiesta = $.ajax({
-        url: "api/Countries",
-        type: "GET",
+        url: "api" + parameters,
+        type: method.toUpperCase(),
         data: "",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         dataType: "json",
         timeout: 5000
     });
 
-    _richiesta.done(data => {
-        app.teams = [];
-        app.countries = data;
-        app.drivers = [];
-    });
+    _richiesta.done(callback);
     _richiesta.fail(error);
 }
 
