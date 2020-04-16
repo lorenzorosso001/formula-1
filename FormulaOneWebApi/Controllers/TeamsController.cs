@@ -17,6 +17,7 @@ namespace FormulaOneWebApi.Controllers
             db.LoadTeams();
             return db.Teams;
         }
+
         public IHttpActionResult GetTeam(int id)
         {
             db.LoadTeams();
