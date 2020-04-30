@@ -1,8 +1,9 @@
-CREATE TABLE [dbo].[Races_Scores]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
-	[driver] INT NOT NULL, 
-	[pos] INT NOT NULL, 
-	[idRace] INT NOT NULL,
-	[fastestLap] VARCHAR(30) NOT NULL
-);
+CREATE TABLE [dbo].[Races_Scores](
+	[id] INT NOT NULL,
+	[extDriver] INT NOT NULL,
+	[extPos] INT NOT NULL,
+	[extScore] INT NOT NULL,
+	[extRace] INT NOT NULL,
+	[fastestLap] VARCHAR(16) NOT NULL,
+	CONSTRAINT [PK_Races_Scores] PRIMARY KEY CLUSTERED ([id] ASC)
+ );
