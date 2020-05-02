@@ -1,0 +1,5 @@
+- update firstDriver & secondDriver in CreateTeams.sql
+- add img in CreateTeams.sql
+- add img in CreateDrivers.sql
+- fill Circuits
+- fill Scores

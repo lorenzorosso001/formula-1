@@ -3,6 +3,7 @@ CREATE TABLE [dbo].[Drivers]
 	[id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [firstname] VARCHAR(128) NOT NULL, 
     [lastname] VARCHAR(128) NOT NULL, 
+	[image] VARCHAR(128),
     [dob] DATE NOT NULL, 
     [placeOfBirth] VARCHAR(64) NOT NULL, 
     [extCountry] CHAR(2) NOT NULL

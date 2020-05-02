@@ -7,6 +7,7 @@ CREATE TABLE [dbo].[Teams]
     [powerUnit] VARCHAR(128) NOT NULL, 
     [technicalChief] VARCHAR(128) NOT NULL,
 	[chassis] VARCHAR(128) NOT NULL,
+	[img] VARCHAR(128),
 	[extFirstDriver] INT NOT NULL,
 	[extSecondDriver] INT NOT NULL
 );
