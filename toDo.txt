@@ -3,3 +3,6 @@
 - add img in CreateDrivers.sql
 - fill Circuits
 - fill Scores
+- fill RacesScores
+- set constraints
+- crud circuits, scores and races [controllers with tablename/id/details]

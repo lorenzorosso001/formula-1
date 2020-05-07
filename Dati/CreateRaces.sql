@@ -5,6 +5,7 @@ CREATE TABLE [dbo].[Races]
     [circuitName] VARCHAR(128) NOT NULL, 
 	[nLaps] INT NOT NULL,
     [grandPrixDate] DATE NOT NULL,
+	[extCircuit] INT NOT NULL
     [extCountry] CHAR(2) NOT NULL
 );
 
