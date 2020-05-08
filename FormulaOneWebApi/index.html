@@ -29,23 +29,19 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" onclick="loadTeams()" href="#">Teams</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" onclick="loadCountries()" href="#">Countries</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" onclick="loadDrivers()" href="#">Drivers</a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div id="app" class="row">
             <div class="col-sm-12">
-                <h2>Scegli l'elemento da visualizzare</h2>
-                <input type="button" value="Teams"  class="btn btn-primary" />
-                <input type="button" value="Countries" onclick="loadCountries();" class="btn btn-success" />
-                <input type="button" value="Drivers" onclick="loadDrivers();" class="btn btn-warning" style="color:white" />
                 <table v-if="teams.length > 0" id="teamsTable" class="table table-dark">
                     <thead>
                         <tr>
@@ -89,7 +85,7 @@
                             <td>{{item.ID}}</td>
                             <td>{{item.Firstname}}</td>
                             <td>{{item.Lastname}}</td>
-                            <td>{{new Date(item.dob)}}</td>
+                            <td>{{item.dob}}</td>
                             <td>{{item.Country.CountryName}}</td>
                         </tr>
                     </tbody>
@@ -138,9 +134,7 @@
             <div class="col-sm-4">
                 <div class="card" style="width: 18rem;">
                     <ul id="lstTeams" class="list-group list-group-flush">
-                        <!--<li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>-->
+
                     </ul>
                 </div>
             </div>
