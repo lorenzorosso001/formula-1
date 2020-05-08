@@ -8,20 +8,29 @@ $(function () {
         data: {
             teams: [],
             drivers: [],
-            countries: []
+            countries: [],
+            circuits: [],
+            races: [],
+            scores: []
         }
     });
 
     let _btnTeamById = $('#btnSearchTeamId');
     let _btnDriverById = $('#btnSearchDriverId');
     let _btnCountryByCode = $('#btnSearchCountryCode');
+    let _btnSearchCircuitId = $('#btnSearchCircuitId');
+    let _btnSearchRaceId = $('#btnSearchRaceId');
+    let _btnSearchScoreId = $('#btnSearchScoresId');
 
     _btnTeamById.on('click', () => {
+        if ($('#detailsCard').css("display") === "none")
+            $('#detailsCard').css({ "display": "block" });
         let id = $('#txtIdTeam').val() - 1; //id partono da 0!
+        $('#txtIdTeam').val("");
         //search team by id
-        sendRequest('/Teams/' + id, 'get', (data) => {
+        sendRequest('/Teams/' + id + '/details', 'get', (data) => {
             console.log(data);
-            $('#lstTeams').empty();
+            $('#lstDetails').empty();
             for(let item in data) {
                 let _li = $('<li>');
                 if (item === "Country")
@@ -31,17 +40,20 @@ $(function () {
                 else
                     _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');
-                _li.appendTo($('#lstTeams'));
+                _li.appendTo($('#lstDetails'));
             }
         });
     });
 
     _btnDriverById.on('click', () => {
+        if ($('#detailsCard').css("display") === "none")
+            $('#detailsCard').css({ "display": "block" });
         let id = $('#txtIdDriver').val(); 
+        $('#txtIdDriver').val(""); 
         //search driver by id
-        sendRequest('/Drivers/' + id, 'get', (data) => {
+        sendRequest('/Drivers/' + id + '/details', 'get', (data) => {
             console.log(data);
-            $('#lstDrivers').empty();
+            $('#lstDetails').empty();
             for (let item in data) {
                 let _li = $('<li>');
                 if (item === "Country")
@@ -49,22 +61,25 @@ $(function () {
                 else
                     _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');
-                _li.appendTo($('#lstDrivers'));
+                _li.appendTo($('#lstDetails'));
             }
         });
     });
 
     _btnCountryByCode.on('click', () => {
+        if ($('#detailsCard').css("display") === "none")
+            $('#detailsCard').css({ "display": "block" });
         let code = $('#txtCodeCountry').val(); //code
+        $('#txtCodeCountry').val("");
         //search country by code
-        sendRequest('/Countries/' + code, 'get', (data) => {
+        sendRequest('/Countries/' + code + '/details', 'get', (data) => {
             console.log(data);
-            $('#lstCountries').empty();
+            $('#lstDetails').empty();
             for (let item in data) {
                 let _li = $('<li>');
                 _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');
-                _li.appendTo($('#lstCountries'));
+                _li.appendTo($('#lstDetails'));
             }
         });
     });
@@ -75,6 +90,9 @@ function loadDrivers() {
         app.teams = [];
         app.countries = [];
         app.drivers = data;
+        app.circuits = [];
+        app.races = [];
+        app.scores = [];
     });
 }
 
@@ -83,6 +101,9 @@ function loadTeams() {
         app.teams = data;
         app.countries = [];
         app.drivers = [];
+        app.circuits = [];
+        app.races = [];
+        app.scores = [];
     });
 }
 
@@ -91,12 +112,16 @@ function loadCountries() {
         app.teams = [];
         app.countries = data;
         app.drivers = [];
+        app.circuits = [];
+        app.races = [];
+        app.scores = [];
     });
 }
 
 function sendRequest(parameters, method, callback) {
     let _richiesta = $.ajax({
-        url: "api" + parameters,
+        //url: "api" + parameters,
+        url: parameters,
         type: method.toUpperCase(),
         data: "",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",

@@ -3,14 +3,6 @@
     background-color: #203A43;
 }
 
-table {
-    margin-top: 3%;
-}
-
-#btnSearchTeamId, #btnSearchDriverId, #btnSearchCountryCode {
-    margin-top: 3%;
-}
-
 .card {
     color: black;
 }
@@ -21,4 +13,8 @@ ul {
 
 h2 {
     font-size: 1.5em;
+}
+
+h5 {
+    padding: 3%;
 }

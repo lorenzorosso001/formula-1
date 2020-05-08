@@ -12,6 +12,9 @@ namespace FormulaOneWebApi.Controllers
     {
         DbTools db = new DbTools();
 
+        //attribute routing
+        [Route("teams")]
+        [HttpGet]
         public IEnumerable<Team> GetAllTeams()
         {
             try
@@ -27,6 +30,9 @@ namespace FormulaOneWebApi.Controllers
 
         }
 
+        //attribute routing
+        [Route("teams/{id}/details")]
+        [HttpGet]
         public IHttpActionResult GetTeam(int id)
         {
             try

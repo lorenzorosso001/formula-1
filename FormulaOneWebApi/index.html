@@ -108,51 +108,101 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtIdTeam">Search Team by ID</label>
                     <input type="text" class="form-control" id="txtIdTeam">
-                    <input type="button" class="btn btn-primary" id="btnSearchTeamId" value="Search"/>
+                    <input type="button" class="btn btn-primary" id="btnSearchTeamId" value="Search" />
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtIdDriver">Search Driver by ID</label>
                     <input type="text" class="form-control" id="txtIdDriver">
                     <input type="button" class="btn btn-primary" id="btnSearchDriverId" value="Search" />
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtCodeCountry">Search Country by Code</label>
                     <input type="text" class="form-control" id="txtCodeCountry">
                     <input type="button" class="btn btn-primary" id="btnSearchCountryCode" value="Search" />
                 </div>
             </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="txtIdTeam">Search Circuit by ID</label>
+                    <input type="text" class="form-control" id="txtIdCircuit">
+                    <input type="button" class="btn btn-primary" id="btnSearchCircuitId" value="Search" />
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="txtIdDriver">Search Race by ID</label>
+                    <input type="text" class="form-control" id="txtIdRaces">
+                    <input type="button" class="btn btn-primary" id="btnSearchRaceId" value="Search" />
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="txtCodeCountry">Search Score by ID</label>
+                    <input type="text" class="form-control" id="txtIdScores">
+                    <input type="button" class="btn btn-primary" id="btnSearchScoresId" value="Search" />
+                </div>
+            </div>
         </div>
         <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 d-flex justify-content-center">
+                <div class="card" id="detailsCard" style="width: 18rem; display: none;">
+                    <h5 class="card-title">Result:</h5>
+                    <ul id="lstDetails" class="list-group list-group-flush">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+            <!--<div class="row">
             <div class="col-sm-4">
                 <div class="card" style="width: 18rem;">
                     <ul id="lstTeams" class="list-group list-group-flush">
-
                     </ul>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="card" style="width: 18rem;">
                     <ul id="lstDrivers" class="list-group list-group-flush">
-
                     </ul>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="card" style="width: 18rem;">
                     <ul id="lstCountries" class="list-group list-group-flush">
-
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <ul id="lstCircuits" class="list-group list-group-flush">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <ul id="lstRaces" class="list-group list-group-flush">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <ul id="lstScores" class="list-group list-group-flush">
+                    </ul>
+                </div>
+            </div>
+        </div>-->
+        </div>
 </body>
 </html>

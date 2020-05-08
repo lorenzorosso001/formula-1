@@ -12,9 +12,10 @@ namespace FormulaOneWebApi
         {
             // Servizi e configurazione dell'API Web
 
-            // Route dell'API Web
+            // Attribute routing.
             config.MapHttpAttributeRoutes();
 
+            // Convention-based routing.
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

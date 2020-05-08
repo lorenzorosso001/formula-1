@@ -24,6 +24,7 @@ namespace FormulaOneDll
         private Dictionary<int, Driver> drivers;
         private Dictionary<string, Country> countries;
         private List<Team> teams;
+        private List<Circuit> circuits;
 
         public Dictionary<int, Driver> Drivers
         {
@@ -54,6 +55,17 @@ namespace FormulaOneDll
                 return teams;
             }
             set => teams = value;
+        }
+
+        public List<Circuit> Circuits
+        {
+            get
+            {
+                if (circuits == null || circuits.Count == 0)
+                    this.LoadCircuits();
+                return circuits;
+            }
+            set => circuits = value;
         }
 
         public void ExecuteSqlScript(string sqlScriptPath)
@@ -182,38 +194,57 @@ namespace FormulaOneDll
             return lstDrivers;
         }
 
-            public void LoadTeams()
+        public void LoadTeams()
+        {
+            GetCountries();
+            GetDrivers(true);
+            teams = new List<Team>();
+            var con = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={WORKINGPATH}FormulaOne.mdf;Integrated Security=True");
+            using (con)
             {
-                GetCountries();
-                GetDrivers(true);
-                teams = new List<Team>();
-                var con = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={WORKINGPATH}FormulaOne.mdf;Integrated Security=True");
-                using (con)
+                con.Open();
+                var command = new SqlCommand("SELECT * FROM Teams;", con);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    con.Open();
-                    var command = new SqlCommand("SELECT * FROM Teams;", con);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    Team t = new Team()
                     {
-                        Team t = new Team()
-                        {
-                            ID = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            FullTeamName = reader.GetString(2),
-                            Country = this.Countries[reader.GetString(3)],
-                            PowerUnit = reader.GetString(4),
-                            TechnicalChief = reader.GetString(5),
-                            Chassis = reader.GetString(6),
-                            //img
-                            FirstDriver = this.Drivers[reader.GetInt32(8)],
-                            SecondDriver = this.Drivers[reader.GetInt32(9)]
-                        };
-                        teams.Add(t);
-                    }
-                    con.Close();
-                    con.Dispose();
+                        ID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        FullTeamName = reader.GetString(2),
+                        Country = this.Countries[reader.GetString(3)],
+                        PowerUnit = reader.GetString(4),
+                        TechnicalChief = reader.GetString(5),
+                        Chassis = reader.GetString(6),
+                        //img
+                        FirstDriver = this.Drivers[reader.GetInt32(8)],
+                        SecondDriver = this.Drivers[reader.GetInt32(9)]
+                    };
+                    teams.Add(t);
                 }
-                SqlConnection.ClearAllPools();
+                con.Close();
+                con.Dispose();
+            }
+            SqlConnection.ClearAllPools();
+        }
+
+        public void LoadCircuits()
+        {
+            circuits = new List<Circuit>();
+            var con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + WORKINGPATH + "FormulaOne.mdf;Integrated Security=True");
+            con.Open();
+            var cmd = new SqlCommand("SELECT * FROM Circuits;", con);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Circuit el = new Circuit(Convert.ToInt32(reader["id"]), reader["name"].ToString(), Convert.ToInt32(reader["nLaps"]), Convert.ToInt32(reader["length"]), reader["recordLap"].ToString());
+                    circuits.Add(el);
+                }
+            }
+            con.Close();
+            con.Dispose();
+            SqlConnection.ClearAllPools();
         }
 
         public bool SerializeToJSON<T>(IEnumerable<T> list, string path)

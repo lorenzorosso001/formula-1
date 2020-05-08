@@ -8,38 +8,40 @@ using FormulaOneDll;
 
 namespace FormulaOneWebApi.Controllers
 {
-    public class DriversController : ApiController
+    public class CircuitsController : ApiController
     {
         DbTools db = new DbTools();
 
         //attribute routing
-        [Route("drivers")]
+        [Route("circuits")]
         [HttpGet]
-        public IEnumerable<Driver> GetAllDrivers()
+        public IEnumerable<Circuit> GetAllCircuits()
         {
             try
             {
-                db.GetDrivers();
-                return db.Drivers.Values;
+                db.LoadCircuits();
+                return db.Circuits;
             }
             catch (Exception)
             {
 
                 throw;
             }
+
         }
 
         //attribute routing
-        [Route("drivers/{id}/details")]
-        public IHttpActionResult GetDriver(int id)
+        [Route("circuits/{id}/details")]
+        [HttpGet]
+        public IHttpActionResult GetCircuit(int id)
         {
             try
             {
-                db.GetDrivers();
-                if (db.Drivers[id] == null)
+                db.LoadCircuits();
+                if (db.Circuits[id] == null)
                     return NotFound();
 
-                return Ok(db.Drivers[id]);
+                return Ok(db.Circuits[id]);
             }
             catch (Exception)
             {

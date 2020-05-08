@@ -12,6 +12,9 @@ namespace FormulaOneWebApi.Controllers
     {
         DbTools db = new DbTools();
 
+        //attribute routing
+        [Route("countries")]
+        [HttpGet]
         public IEnumerable<Country> GetAllCountries()
         {
             try
@@ -25,15 +28,19 @@ namespace FormulaOneWebApi.Controllers
                 throw;
             }
         }
-        public IHttpActionResult GetCountry(string id)
+
+        //attribute routing
+        [Route("countries/{code}/details")]
+        [HttpGet]
+        public IHttpActionResult GetCountry(string code)
         {
             try
             {
                 db.GetCountries();
-                if (db.Countries[id] == null)
+                if (db.Countries[code] == null)
                     return NotFound();
 
-                return Ok(db.Countries[id]);
+                return Ok(db.Countries[code]);
             }
             catch (Exception ex)
             {
