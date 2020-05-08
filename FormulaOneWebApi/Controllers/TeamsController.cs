@@ -14,17 +14,35 @@ namespace FormulaOneWebApi.Controllers
 
         public IEnumerable<Team> GetAllTeams()
         {
-            db.LoadTeams();
-            return db.Teams;
+            try
+            {
+                db.LoadTeams();
+                return db.Teams;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public IHttpActionResult GetTeam(int id)
         {
-            db.LoadTeams();
-            if (db.Teams[id] == null)
-                return NotFound();
+            try
+            {
+                db.LoadTeams();
+                if (db.Teams[id] == null)
+                    return NotFound();
 
-            return Ok(db.Teams[id]);
+                return Ok(db.Teams[id]);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

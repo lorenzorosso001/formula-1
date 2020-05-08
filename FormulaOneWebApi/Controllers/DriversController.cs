@@ -13,16 +13,33 @@ namespace FormulaOneWebApi.Controllers
         DbTools db = new DbTools();
         public IEnumerable<Driver> GetAllDrivers()
         {
-            db.GetDrivers();
-            return db.Drivers.Values;
+            try
+            {
+                db.GetDrivers();
+                return db.Drivers.Values;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public IHttpActionResult GetDriver(int id)
         {
-            db.GetDrivers();
-            if (db.Drivers[id] == null)
-                return NotFound();
+            try
+            {
+                db.GetDrivers();
+                if (db.Drivers[id] == null)
+                    return NotFound();
 
-            return Ok(db.Drivers[id]);
+                return Ok(db.Drivers[id]);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

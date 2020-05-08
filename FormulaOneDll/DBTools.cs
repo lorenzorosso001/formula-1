@@ -56,28 +56,6 @@ namespace FormulaOneDll
             set => teams = value;
         }
 
-        //public void CreateCountriesWithSmo()
-        //{
-        //    string sqlConnectionString = @"Data Source = (localdb)\MSSQLLocalDB; 
-        //        AttachDbFilename =C:\Users\loren\OneDrive\Desktop\_Scuola\2019-2020\INFORMATICA\CAMBIERI\FormulaOneSolution\FormulaOne.mdf; Integrated Security = True";
-        //    FileInfo file = new FileInfo(@"Countries.sql");
-        //    string script = file.OpenText().ReadToEnd();
-        //    SqlConnection conn = new SqlConnection(sqlConnectionString);
-        //    Server server = new Server(new ServerConnection(conn));
-
-        //    try
-        //    {
-        //        server.ConnectionContext.ExecuteNonQuery(script);
-        //        file.OpenText().Close();
-        //        conn.Close();
-        //        Console.WriteLine("CreateCountries: SUCCESS");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Error: " + ex);
-        //    }
-        //}
-
         public void ExecuteSqlScript(string sqlScriptPath)
         {
             var fileContent = File.ReadAllText($"{WORKINGPATH}{sqlScriptPath}");
@@ -108,40 +86,6 @@ namespace FormulaOneDll
             con.Dispose();
             SqlConnection.ClearAllPools();
         }
-
-        //public void MakeBackup()
-        //{
-        //    StreamReader sr = new StreamReader($"{WORKINGPATH}FormulaOne.mdf");
-        //    StreamWriter sw = new StreamWriter($"{WORKINGPATH}FormulaOneBackup.mdf");
-        //    sw.Write(sr.ReadToEnd());
-        //    sr.Close();
-        //    sw.Close();
-        //}
-        //public void Restore()
-        //{
-        //    StreamReader sr = new StreamReader($"{WORKINGPATH}FormulaOneBackup.mdf");
-        //    StreamWriter sw = new StreamWriter($"{WORKINGPATH}FormulaOne.mdf");
-        //    sw.Write(sr.ReadToEnd());
-        //    sr.Close();
-        //    sw.Close();
-        //}
-
-        //public void DropTable(string tableName)
-        //{
-        //    var con = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={WORKINGPATH}FormulaOne.mdf;Integrated Security=True");
-        //    var cmd = new SqlCommand($"Drop Table {tableName};", con);
-        //    con.Open();
-        //    try
-        //    {
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        Console.WriteLine($"Errore: {ex.Number} {ex.Message}");
-        //    }
-        //    con.Close();
-        //    con.Dispose();
-        //}
 
         public void GetCountries()
         {
@@ -194,9 +138,10 @@ namespace FormulaOneDll
                         {
                             Firstname = reader.GetString(1),
                             Lastname = reader.GetString(2),
-                            Dob = reader.GetDateTime(3),
-                            PlaceOfBirthday = reader.GetString(4),
-                            Country = Countries[reader.GetString(5)]
+                            //image
+                            Dob = reader.GetDateTime(4),
+                            PlaceOfBirthday = reader.GetString(5),
+                            Country = Countries[reader.GetString(6)]
                         };
                         this.Drivers.Add(driverIsoCode, d);
                     }
@@ -222,9 +167,10 @@ namespace FormulaOneDll
                     int Id = reader.GetInt32(0);
                     string Firstname = reader.GetString(1);
                     string Lastname = reader.GetString(2);
-                    DateTime Dob = reader.GetDateTime(3);
-                    string PlaceOfBirthday = reader.GetString(4);
-                    Country Country = Countries[reader.GetString(5)];
+                    //img
+                    DateTime Dob = reader.GetDateTime(4);
+                    string PlaceOfBirthday = reader.GetString(5);
+                    Country Country = Countries[reader.GetString(6)];
                     Driver d = new Driver(Id, Firstname, Lastname, Dob, PlaceOfBirthday, Country);
                     lstDrivers.Add(d);
                 };            
@@ -258,8 +204,9 @@ namespace FormulaOneDll
                             PowerUnit = reader.GetString(4),
                             TechnicalChief = reader.GetString(5),
                             Chassis = reader.GetString(6),
-                            FirstDriver = this.Drivers[reader.GetInt32(7)],
-                            SecondDriver = this.Drivers[reader.GetInt32(8)]
+                            //img
+                            FirstDriver = this.Drivers[reader.GetInt32(8)],
+                            SecondDriver = this.Drivers[reader.GetInt32(9)]
                         };
                         teams.Add(t);
                     }

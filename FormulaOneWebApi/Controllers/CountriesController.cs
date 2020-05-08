@@ -14,16 +14,32 @@ namespace FormulaOneWebApi.Controllers
 
         public IEnumerable<Country> GetAllCountries()
         {
-            db.GetCountries();
-            return db.Countries.Values;
+            try
+            {
+                db.GetCountries();
+                return db.Countries.Values;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public IHttpActionResult GetCountry(string id)
         {
-            db.GetCountries();
-            if (db.Countries[id] == null)
-                return NotFound();
+            try
+            {
+                db.GetCountries();
+                if (db.Countries[id] == null)
+                    return NotFound();
 
-            return Ok(db.Countries[id]);
+                return Ok(db.Countries[id]);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
