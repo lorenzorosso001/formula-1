@@ -238,7 +238,7 @@ namespace FormulaOneDll
             {
                 while (reader.Read())
                 {
-                    Circuit el = new Circuit(Convert.ToInt32(reader["id"]), reader["name"].ToString(), Convert.ToInt32(reader["nLaps"]), Convert.ToInt32(reader["length"]), reader["recordLap"].ToString());
+                    Circuit el = new Circuit(Convert.ToInt32(reader["Id"]), reader["name"].ToString(), Convert.ToInt32(reader["nLaps"]), Convert.ToInt32(reader["length"]), reader["recordLap"].ToString());
                     circuits.Add(el);
                 }
             }

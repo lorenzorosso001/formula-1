@@ -22,6 +22,7 @@ $(function () {
     let _btnSearchRaceId = $('#btnSearchRaceId');
     let _btnSearchScoreId = $('#btnSearchScoresId');
 
+    /*TEAMS*/
     _btnTeamById.on('click', () => {
         if ($('#detailsCard').css("display") === "none")
             $('#detailsCard').css({ "display": "block" });
@@ -45,6 +46,7 @@ $(function () {
         });
     });
 
+    /*DRIVERS*/
     _btnDriverById.on('click', () => {
         if ($('#detailsCard').css("display") === "none")
             $('#detailsCard').css({ "display": "block" });
@@ -66,6 +68,7 @@ $(function () {
         });
     });
 
+    /*COUNTRIES*/
     _btnCountryByCode.on('click', () => {
         if ($('#detailsCard').css("display") === "none")
             $('#detailsCard').css({ "display": "block" });
@@ -73,6 +76,25 @@ $(function () {
         $('#txtCodeCountry').val("");
         //search country by code
         sendRequest('/Countries/' + code + '/details', 'get', (data) => {
+            console.log(data);
+            $('#lstDetails').empty();
+            for (let item in data) {
+                let _li = $('<li>');
+                _li.html(item + " : " + data[item]);
+                _li.addClass('list-group-item');
+                _li.appendTo($('#lstDetails'));
+            }
+        });
+    });
+
+    /*CIRCUITS*/
+    _btnSearchCircuitId.on('click', () => {
+        if ($('#detailsCard').css("display") === "none")
+            $('#detailsCard').css({ "display": "block" });
+        let id = $('#txtIdCircuit').val()-1; 
+        $('#txtIdCircuit').val("");
+        //search country by code
+        sendRequest('/Circuits/' + id + '/details', 'get', (data) => {
             console.log(data);
             $('#lstDetails').empty();
             for (let item in data) {

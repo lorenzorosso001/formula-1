@@ -9,7 +9,7 @@ namespace FormulaOneDll
     public class Circuit
     {
         #region Attributes
-        private readonly int id;
+        private int id;
         private string name;
         private int nLaps;
         private int length;
@@ -21,6 +21,7 @@ namespace FormulaOneDll
 
         public Circuit(int id, string name, int nLaps, int length, string recordLap)
         {
+            this.Id = id;
             this.Name = name;
             this.NLaps = nLaps;
             this.Length = length;
@@ -29,7 +30,7 @@ namespace FormulaOneDll
         #endregion
 
         #region Properties
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public int NLaps { get => nLaps; set => nLaps = value; }
         public int Length { get => length; set => length = value; }
