@@ -91,6 +91,7 @@
     <Compile Include="Controllers\CircuitsController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\DriversController.cs" />
+    <Compile Include="Controllers\RacesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

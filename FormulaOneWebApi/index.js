@@ -20,7 +20,7 @@ $(function () {
     let _btnCountryByCode = $('#btnSearchCountryCode');
     let _btnSearchCircuitId = $('#btnSearchCircuitId');
     let _btnSearchRaceId = $('#btnSearchRaceId');
-    let _btnSearchScoreId = $('#btnSearchScoresId');
+    //let _btnSearchScoreId = $('#btnSearchScoresId');
 
     /*TEAMS*/
     _btnTeamById.on('click', () => {
@@ -93,7 +93,7 @@ $(function () {
             $('#detailsCard').css({ "display": "block" });
         let id = $('#txtIdCircuit').val()-1; 
         $('#txtIdCircuit').val("");
-        //search country by code
+
         sendRequest('/Circuits/' + id + '/details', 'get', (data) => {
             console.log(data);
             $('#lstDetails').empty();
@@ -105,6 +105,49 @@ $(function () {
             }
         });
     });
+
+    /*RACES*/
+    _btnSearchRaceId.on('click', () => {
+        if ($('#detailsCard').css("display") === "none")
+            $('#detailsCard').css({ "display": "block" });
+        let id = $('#txtIdRaces').val() - 1;
+        $('#txtIdRaces').val("");
+
+        sendRequest('/Races/' + id + '/details', 'get', (data) => {
+            console.log(data);
+            $('#lstDetails').empty();
+            for (let item in data) {
+                let _li = $('<li>');
+                if (item === "Country")
+                    _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
+                else if (item === "Circuit")
+                    _li.html(item + " : " + data[item].Name);
+                else
+                    _li.html(item + " : " + data[item]);
+                _li.addClass('list-group-item');
+                _li.appendTo($('#lstDetails'));
+            }
+        });
+    });
+
+    /*SCORES
+    _btnSearchScoreId.on('click', () => {
+        if ($('#detailsCard').css("display") === "none")
+            $('#detailsCard').css({ "display": "block" });
+        let id = $('#txtIdScores').val() - 1;
+        $('#txtIdScores').val("");
+
+        sendRequest('/Scores/' + id + '/details', 'get', (data) => {
+            console.log(data);
+            $('#lstDetails').empty();
+            for (let item in data) {
+                let _li = $('<li>');
+                _li.html(item + " : " + data[item]);
+                _li.addClass('list-group-item');
+                _li.appendTo($('#lstDetails'));
+            }
+        });
+    });*/
 });
 
 function loadDrivers() {
@@ -139,6 +182,40 @@ function loadCountries() {
         app.scores = [];
     });
 }
+
+function loadCircuits() {
+    sendRequest("/Circuits", "get", data => {
+        app.teams = [];
+        app.countries = [];
+        app.drivers = [];
+        app.circuits = data;
+        app.races = [];
+        app.scores = [];
+    });
+}
+
+function loadRaces() {
+    sendRequest("/Races", "get", data => {
+        console.log(data);
+        app.teams = [];
+        app.countries = [];
+        app.drivers = [];
+        app.circuits = [];
+        app.races = data;
+        app.scores = [];
+    });
+}
+
+/*function loadScores() {
+    sendRequest("/Scores", "get", data => {
+        app.teams = [];
+        app.countries = [];
+        app.drivers = [];
+        app.circuits = [];
+        app.races = [];
+        app.scores = data;
+    });
+}*/
 
 function sendRequest(parameters, method, callback) {
     let _richiesta = $.ajax({

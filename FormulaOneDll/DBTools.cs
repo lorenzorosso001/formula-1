@@ -25,6 +25,7 @@ namespace FormulaOneDll
         private Dictionary<string, Country> countries;
         private List<Team> teams;
         private List<Circuit> circuits;
+        private List<Race> races;
 
         public Dictionary<int, Driver> Drivers
         {
@@ -66,6 +67,17 @@ namespace FormulaOneDll
                 return circuits;
             }
             set => circuits = value;
+        }
+
+        public List<Race> Races
+        {
+            get
+            {
+                if (races == null || races.Count == 0)
+                    this.LoadRaces();
+                return races;
+            }
+            set => races = value;
         }
 
         public void ExecuteSqlScript(string sqlScriptPath)
@@ -240,6 +252,25 @@ namespace FormulaOneDll
                 {
                     Circuit el = new Circuit(Convert.ToInt32(reader["Id"]), reader["name"].ToString(), Convert.ToInt32(reader["nLaps"]), Convert.ToInt32(reader["length"]), reader["recordLap"].ToString());
                     circuits.Add(el);
+                }
+            }
+            con.Close();
+            con.Dispose();
+            SqlConnection.ClearAllPools();
+        }
+
+        public void LoadRaces()
+        {
+            races = new List<Race>();
+            var con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + WORKINGPATH + "FormulaOne.mdf;Integrated Security=True");
+            con.Open();
+            var cmd = new SqlCommand("SELECT * FROM Races;", con);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Race el = new Race(Convert.ToInt32(reader["Id"]), reader["grandPrixName"].ToString(), Convert.ToDateTime(reader["grandPrixDate"]), Countries[reader["extCountry"].ToString()], Circuits[Convert.ToInt32(reader["extCircuit"])]);
+                    races.Add(el);
                 }
             }
             con.Close();

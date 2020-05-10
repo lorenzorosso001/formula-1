@@ -37,6 +37,15 @@
                     <li class="nav-item">
                         <a class="nav-link" onclick="loadDrivers()" href="#">Drivers</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadCircuits()" href="#">Circuits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadRaces()" href="#">Races</a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link" onclick="loadScores()" href="#">Scores</a>
+                    </li>-->
                 </ul>
             </div>
         </nav>
@@ -104,6 +113,46 @@
                         </tr>
                     </tbody>
                 </table>
+                <table class="table is-fullwidth is-hoverable table table-dark" v-if="circuits.length > 0" id="circuitsTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>N Laps</th>
+                            <th>Length</th>
+                            <th>Record Lap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in circuits">
+                            <td>{{item.Id}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>{{item.NLaps}}</td>
+                            <td>{{item.Length}}</td>
+                            <td>{{item.RecordLap}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table is-fullwidth is-hoverable table table-dark" v-if="races.length > 0" id="racesTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Grand Prix Name</th>
+                            <th>Grand Prix Date</th>
+                            <th>Country</th>
+                            <th>Circuit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in races">
+                            <td>{{item.Id}}</td>
+                            <td>{{item.GrandPrixName}}</td>
+                            <td>{{item.GrandPrixDate}}</td>
+                            <td>{{item.Country.CountryName}}</td>
+                            <td>{{item.Circuit.Name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <br />
             </div>
         </div>
@@ -143,66 +192,25 @@
                     <input type="button" class="btn btn-primary" id="btnSearchRaceId" value="Search" />
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label for="txtCodeCountry">Search Score by ID</label>
-                    <input type="text" class="form-control" id="txtIdScores">
-                    <input type="button" class="btn btn-primary" id="btnSearchScoresId" value="Search" />
-                </div>
-            </div>
+            <!--<div class="col-sm-2">
+            <div class="form-group">
+                <label for="txtCodeCountry">Search Score by ID</label>
+                <input type="text" class="form-control" id="txtIdScores">
+                <input type="button" class="btn btn-primary" id="btnSearchScoresId" value="Search" />
+            </div>-->
         </div>
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4 d-flex justify-content-center">
-                <div class="card" id="detailsCard" style="width: 18rem; display: none;">
-                    <h5 class="card-title">Result:</h5>
-                    <ul id="lstDetails" class="list-group list-group-flush">
-                    </ul>
-                </div>
             </div>
-            <div class="col-sm-4"></div>
-        </div>
-            <!--<div class="row">
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <ul id="lstTeams" class="list-group list-group-flush">
-                    </ul>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 d-flex justify-content-center">
+                    <div class="card" id="detailsCard" style="width: 18rem; display: none;">
+                        <h5 class="card-title">Result:</h5>
+                        <ul id="lstDetails" class="list-group list-group-flush">
+                        </ul>
+                    </div>
                 </div>
+                <div class="col-sm-4"></div>
             </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <ul id="lstDrivers" class="list-group list-group-flush">
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <ul id="lstCountries" class="list-group list-group-flush">
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <ul id="lstCircuits" class="list-group list-group-flush">
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <ul id="lstRaces" class="list-group list-group-flush">
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <ul id="lstScores" class="list-group list-group-flush">
-                    </ul>
-                </div>
-            </div>
-        </div>-->
         </div>
 </body>
 </html>
