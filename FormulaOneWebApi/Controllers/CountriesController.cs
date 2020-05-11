@@ -24,7 +24,6 @@ namespace FormulaOneWebApi.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -42,9 +41,9 @@ namespace FormulaOneWebApi.Controllers
 
                 return Ok(db.Countries[code]);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                return NotFound();
             }
 
         }

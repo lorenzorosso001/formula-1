@@ -22,3 +22,19 @@ h5 {
 .form-group input[type=button] {
     margin-top: 4%;
 }
+
+#tableWrapper::-webkit-scrollbar {
+    background-color: white;
+    width: 2%;
+}
+
+#tableWrapper {
+    max-height: 30em;
+    overflow-y: scroll;
+    margin-bottom: 1%;
+}
+
+#sticky-footer {
+    flex-shrink: none;
+    clear: both;
+}

@@ -18,7 +18,7 @@
     <div id="wrapper" class="container-fluid p-0">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <!-- Brand -->
-            <a class="navbar-brand">FormulaOne</a>
+            <a class="navbar-brand" href="index.html">FormulaOne</a>
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -50,112 +50,112 @@
             </div>
         </nav>
         <div id="app" class="row">
-            <div class="col-sm-12">
-                    <table v-if="teams.length > 0" id="teamsTable" class="table table-dark">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>FullTeamName</th>
-                                <th>Country</th>
-                                <th>Power unit</th>
-                                <th>Technical chief</th>
-                                <th>Chassis</th>
-                                <th>First driver</th>
-                                <th>Second driver</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item, index) in teams">
-                                <td>{{item.ID}}</td>
-                                <td>{{item.Name}}</td>
-                                <td>{{item.FullTeamName}}</td>
-                                <td>{{item.Country.CountryName}}</td>
-                                <td>{{item.PowerUnit}}</td>
-                                <td>{{item.TechnicalChief}}</td>
-                                <td>{{item.Chassis}}</td>
-                                <td>{{item.FirstDriver.Firstname}} {{item.FirstDriver.Lastname}}</td>
-                                <td>{{item.SecondDriver.Firstname}} {{item.SecondDriver.Lastname}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table is-fullwidth is-hoverable table table-dark" v-if="drivers.length > 0" id="driversTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>First name</th>
-                                <th>Last name</th>
-                                <th>DOB</th>
-                                <th>Country</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item, index) in drivers">
-                                <td>{{item.ID}}</td>
-                                <td>{{item.Firstname}}</td>
-                                <td>{{item.Lastname}}</td>
-                                <td>{{item.dob}}</td>
-                                <td>{{item.Country.CountryName}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table is-fullwidth is-hoverable table table-dark" v-if="countries.length > 0" id="countryTable">
-                        <thead>
-                            <tr>
-                                <th>Cod</th>
-                                <th>Name</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item, index) in countries">
-                                <td>{{item.CountryCode}}</td>
-                                <td>{{item.CountryName}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table is-fullwidth is-hoverable table table-dark" v-if="circuits.length > 0" id="circuitsTable">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>N Laps</th>
-                                <th>Length</th>
-                                <th>Record Lap</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item, index) in circuits">
-                                <td>{{item.Id}}</td>
-                                <td>{{item.Name}}</td>
-                                <td>{{item.NLaps}}</td>
-                                <td>{{item.Length}}</td>
-                                <td>{{item.RecordLap}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table is-fullwidth is-hoverable table table-dark" v-if="races.length > 0" id="racesTable">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Grand Prix Name</th>
-                                <th>Grand Prix Date</th>
-                                <th>Country</th>
-                                <th>Circuit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item, index) in races">
-                                <td>{{item.Id}}</td>
-                                <td>{{item.GrandPrixName}}</td>
-                                <td>{{item.GrandPrixDate}}</td>
-                                <td>{{item.Country.CountryName}}</td>
-                                <td>{{item.Circuit.Name}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br />
-                </div>
+            <div class="col-sm-12" id="tableWrapper">
+                <table v-if="teams.length > 0" id="teamsTable" class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>FullTeamName</th>
+                            <th>Country</th>
+                            <th>Power unit</th>
+                            <th>Technical chief</th>
+                            <th>Chassis</th>
+                            <th>First driver</th>
+                            <th>Second driver</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in teams">
+                            <td>{{item.ID}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>{{item.FullTeamName}}</td>
+                            <td>{{item.Country.CountryName}}</td>
+                            <td>{{item.PowerUnit}}</td>
+                            <td>{{item.TechnicalChief}}</td>
+                            <td>{{item.Chassis}}</td>
+                            <td>{{item.FirstDriver.Firstname}} {{item.FirstDriver.Lastname}}</td>
+                            <td>{{item.SecondDriver.Firstname}} {{item.SecondDriver.Lastname}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table is-fullwidth is-hoverable table table-dark" v-if="drivers.length > 0" id="driversTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>DOB</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in drivers">
+                            <td>{{item.ID}}</td>
+                            <td>{{item.Firstname}}</td>
+                            <td>{{item.Lastname}}</td>
+                            <td>{{item.dob}}</td>
+                            <td>{{item.Country.CountryName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table is-fullwidth is-hoverable table table-dark" v-if="countries.length > 0" id="countryTable">
+                    <thead>
+                        <tr>
+                            <th>Cod</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in countries">
+                            <td>{{item.CountryCode}}</td>
+                            <td>{{item.CountryName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table is-fullwidth is-hoverable table table-dark" v-if="circuits.length > 0" id="circuitsTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>N Laps</th>
+                            <th>Length</th>
+                            <th>Record Lap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in circuits">
+                            <td>{{item.Id}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>{{item.NLaps}}</td>
+                            <td>{{item.Length}}</td>
+                            <td>{{item.RecordLap}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table is-fullwidth is-hoverable table table-dark" v-if="races.length > 0" id="racesTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Grand Prix Name</th>
+                            <th>Grand Prix Date</th>
+                            <th>Country</th>
+                            <th>Circuit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in races">
+                            <td>{{item.Id}}</td>
+                            <td>{{item.GrandPrixName}}</td>
+                            <td>{{item.GrandPrixDate}}</td>
+                            <td>{{item.Country.CountryName}}</td>
+                            <td>{{item.Circuit.Name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
             </div>
+        </div>
         <div class="row">
             <div class="col-sm-2">
                 <div class="form-group">
@@ -182,7 +182,7 @@
                 <div class="form-group">
                     <label for="txtIdTeam">Search Circuit by ID</label>
                     <input type="text" class="form-control" id="txtIdCircuit">
-                    <input type="button" class="btn btn-primary" id="btnSearchCircuitId" value="Search"/>
+                    <input type="button" class="btn btn-primary" id="btnSearchCircuitId" value="Search" />
                 </div>
             </div>
             <div class="col-sm-2">
@@ -199,18 +199,23 @@
                 <input type="button" class="btn btn-primary" id="btnSearchScoresId" value="Search" />
             </div>-->
         </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4 d-flex justify-content-center">
-                    <div class="card" id="detailsCard" style="width: 18rem; display: none;">
-                        <h5 class="card-title">Result:</h5>
-                        <ul id="lstDetails" class="list-group list-group-flush">
-                        </ul>
-                    </div>
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 d-flex justify-content-center">
+                <div class="card" id="detailsCard" style="width: 18rem; display: none;">
+                    <h5 class="card-title">Result:</h5>
+                    <ul id="lstDetails" class="list-group list-group-flush">
+                    </ul>
                 </div>
-                <div class="col-sm-4"></div>
             </div>
+            <div class="col-sm-4"></div>
         </div>
+    </div>
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; Rosso Lorenzo 5B INF</small>
+        </div>
+    </footer>
 </body>
 </html>
