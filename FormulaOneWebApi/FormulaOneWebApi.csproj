@@ -80,7 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="f1.png" />
+    <Content Include="Images\f1.png" />
     <Content Include="Global.asax" />
     <Content Include="index.css" />
     <Content Include="index.html" />

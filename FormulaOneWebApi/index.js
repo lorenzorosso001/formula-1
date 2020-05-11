@@ -60,6 +60,8 @@ $(function () {
                 let _li = $('<li>');
                 if (item === "Country")
                     _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
+                else if (item == "Dob") 
+                    _li.html(item + " : " + data[item].substring(0, 10));
                 else
                     _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');
@@ -122,6 +124,8 @@ $(function () {
                     _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
                 else if (item === "Circuit")
                     _li.html(item + " : " + data[item].Name);
+                else if (item == "GrandPrixDate")
+                    _li.html(item + " : " + data[item].substring(0, 10));
                 else
                     _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');
@@ -196,7 +200,6 @@ function loadCircuits() {
 
 function loadRaces() {
     sendRequest("api/races", "get", data => {
-        console.log(data);
         app.teams = [];
         app.countries = [];
         app.drivers = [];
