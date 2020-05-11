@@ -18,3 +18,7 @@ h2 {
 h5 {
     padding: 3%;
 }
+
+.form-group input[type=button] {
+    margin-top: 4%;
+}
