@@ -8,6 +8,7 @@ using FormulaOneDll;
 
 namespace FormulaOneWebApi.Controllers
 {
+    [RoutePrefix("api")]
     public class TeamsController : ApiController
     {
         DbTools db = new DbTools();

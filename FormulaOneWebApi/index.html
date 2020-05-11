@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Formula One</title>
+    <link rel="icon" href="f1.png">
     <meta http-equiv="X-UA-Compatible" content="IE =edge">
     <meta name="viewport" content="width =device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -18,7 +19,7 @@
     <div id="wrapper" class="container-fluid p-0">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <!-- Brand -->
-            <a class="navbar-brand" href="index.html">FormulaOne</a>
+            <a class="navbar-brand" href="index.html"><img id="f1img" class="img-responsive" src="f1.png" /></a>
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -156,40 +157,40 @@
                 <br />
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="searchingForm">
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtIdTeam">Search Team by ID</label>
                     <input type="text" class="form-control" id="txtIdTeam">
-                    <input type="button" class="btn btn-primary" id="btnSearchTeamId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchTeamId" value="Search" />
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtIdDriver">Search Driver by ID</label>
                     <input type="text" class="form-control" id="txtIdDriver">
-                    <input type="button" class="btn btn-primary" id="btnSearchDriverId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchDriverId" value="Search" />
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtCodeCountry">Search Country by Code</label>
                     <input type="text" class="form-control" id="txtCodeCountry">
-                    <input type="button" class="btn btn-primary" id="btnSearchCountryCode" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchCountryCode" value="Search" />
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtIdTeam">Search Circuit by ID</label>
                     <input type="text" class="form-control" id="txtIdCircuit">
-                    <input type="button" class="btn btn-primary" id="btnSearchCircuitId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchCircuitId" value="Search" />
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtIdDriver">Search Race by ID</label>
                     <input type="text" class="form-control" id="txtIdRaces">
-                    <input type="button" class="btn btn-primary" id="btnSearchRaceId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchRaceId" value="Search" />
                 </div>
             </div>
             <!--<div class="col-sm-2">

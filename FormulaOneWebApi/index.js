@@ -29,7 +29,7 @@ $(function () {
         let id = $('#txtIdTeam').val() - 1; //id partono da 0!
         $('#txtIdTeam').val("");
         //search team by id
-        sendRequest('/Teams/' + id + '/details', 'get', (data) => {
+        sendRequest('api/teams/' + id + '/details', 'get', (data) => {
             console.log(data);
             $('#lstDetails').empty();
             for(let item in data) {
@@ -53,7 +53,7 @@ $(function () {
         let id = $('#txtIdDriver').val(); 
         $('#txtIdDriver').val(""); 
         //search driver by id
-        sendRequest('/Drivers/' + id + '/details', 'get', (data) => {
+        sendRequest('api/drivers/' + id + '/details', 'get', (data) => {
             console.log(data);
             $('#lstDetails').empty();
             for (let item in data) {
@@ -75,7 +75,7 @@ $(function () {
         let code = $('#txtCodeCountry').val(); //code
         $('#txtCodeCountry').val("");
         //search country by code
-        sendRequest('/Countries/' + code + '/details', 'get', (data) => {
+        sendRequest('api/countries/' + code + '/details', 'get', (data) => {
             console.log(data);
             $('#lstDetails').empty();
             for (let item in data) {
@@ -94,7 +94,7 @@ $(function () {
         let id = $('#txtIdCircuit').val()-1; 
         $('#txtIdCircuit').val("");
 
-        sendRequest('/Circuits/' + id + '/details', 'get', (data) => {
+        sendRequest('api/circuits/' + id + '/details', 'get', (data) => {
             console.log(data);
             $('#lstDetails').empty();
             for (let item in data) {
@@ -113,7 +113,7 @@ $(function () {
         let id = $('#txtIdRaces').val() - 1;
         $('#txtIdRaces').val("");
 
-        sendRequest('/Races/' + id + '/details', 'get', (data) => {
+        sendRequest('api/races/' + id + '/details', 'get', (data) => {
             console.log(data);
             $('#lstDetails').empty();
             for (let item in data) {
@@ -151,7 +151,7 @@ $(function () {
 });
 
 function loadDrivers() {
-    sendRequest("/Drivers", "get", data => {
+    sendRequest("api/drivers", "get", data => {
         app.teams = [];
         app.countries = [];
         app.drivers = data;
@@ -162,7 +162,7 @@ function loadDrivers() {
 }
 
 function loadTeams() {
-    sendRequest("/Teams", "get", data => {
+    sendRequest("api/teams", "get", data => {
         app.teams = data;
         app.countries = [];
         app.drivers = [];
@@ -173,7 +173,7 @@ function loadTeams() {
 }
 
 function loadCountries() {
-    sendRequest("/Countries", "get", data => {
+    sendRequest("api/countries", "get", data => {
         app.teams = [];
         app.countries = data;
         app.drivers = [];
@@ -184,7 +184,7 @@ function loadCountries() {
 }
 
 function loadCircuits() {
-    sendRequest("/Circuits", "get", data => {
+    sendRequest("api/circuits", "get", data => {
         app.teams = [];
         app.countries = [];
         app.drivers = [];
@@ -195,7 +195,7 @@ function loadCircuits() {
 }
 
 function loadRaces() {
-    sendRequest("/Races", "get", data => {
+    sendRequest("api/races", "get", data => {
         console.log(data);
         app.teams = [];
         app.countries = [];

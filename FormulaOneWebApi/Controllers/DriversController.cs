@@ -8,6 +8,7 @@ using FormulaOneDll;
 
 namespace FormulaOneWebApi.Controllers
 {
+    [RoutePrefix("api")]
     public class DriversController : ApiController
     {
         DbTools db = new DbTools();
