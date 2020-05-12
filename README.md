@@ -1,8 +1,8 @@
 # Lorenzo Rosso
 
-## Formula One Project
+## Formula One Project :red_car: :checkered_flag:
 
-Project about the simulation of the **F1 Championship**.<br>
+Project about the management of the **F1 Championship 2019**.<br>
 
 ## Docs
 
@@ -18,7 +18,13 @@ Project about the simulation of the **F1 Championship**.<br>
 Visual Studio 2019 platform.<br>
 Microsoft SQL Server Management Studio 18 <br>
 
-## Proj
+## Get Started
+You have to download the solution and open it in Visual Studio (I used 2019 version)
+Remember to adapt the path of your .mdf database location, changing the path line in DbTools.cs [FormulaOneDll]
+
+![Database Design](https://github.com/vallauri-ict/formula-1-lorenzorosso001/DB_Design.jpg)
+
+## Projects List
 
 ### proj 5 - FormulaOneWebApi
 
