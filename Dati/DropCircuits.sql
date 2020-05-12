@@ -1,3 +1,1 @@
-ALTER TABLE Circuits
-DROP CONSTRAINT FK_PersonOrder;
 DROP TABLE Circuits;

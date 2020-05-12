@@ -62,14 +62,12 @@ namespace FormulaOneBacthConsoleProject
             catch (Exception ex)
             {
                 Console.WriteLine($"{scriptName} - {ex.Message}\n");
-                //RestoreDB();
                 return false;
             }
         }
 
         private static void ResetDB()
         {
-            //db.MakeBackup();
             char scelta;
             Console.Write("This operation delete the all Database, are you sure? (Y/n) ");
             scelta = Char.ToUpper(Console.ReadKey().KeyChar);
@@ -79,6 +77,7 @@ namespace FormulaOneBacthConsoleProject
                 {
                     Console.Clear();
                     if (
+                        CallExecuteSqlScript("RemoveConstraints") &&
                         CallExecuteSqlScript("DropTeams") &&
                         CallExecuteSqlScript("DropDrivers") &&
                         CallExecuteSqlScript("DropCountries") &&
@@ -102,18 +101,12 @@ namespace FormulaOneBacthConsoleProject
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Sorry, something went wrong. - {ex.Message}");
-                    //RestoreDB();
                 }
             else if (scelta == 'N')
                 Console.WriteLine("Ok, the Database won't be deleted.");
             else
                 Console.WriteLine("Uncorrect choice.");
         }
-        /*private static void RestoreDB()
-        {
-            db.Restore();
-            Console.WriteLine("The Database was restored.");
-        }*/
 
         private static void Menu()
         {
