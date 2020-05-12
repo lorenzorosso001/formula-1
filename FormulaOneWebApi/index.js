@@ -16,7 +16,7 @@ $(function () {
     });
 
     let _btnTeamById = $('#btnSearchTeamId');
-    let _btnDriverById = $('#btnSearchDriverId');
+    let _btnDriverById = $('#btnSearchDriverId'); 
     let _btnCountryByCode = $('#btnSearchCountryCode');
     let _btnSearchCircuitId = $('#btnSearchCircuitId');
     let _btnSearchRaceId = $('#btnSearchRaceId');

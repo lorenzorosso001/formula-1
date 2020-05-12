@@ -10,8 +10,21 @@
 
 body {
     color: white;
-    background-color: #203A43;
+    /*background-color: #203A43;*/
+    background-color: #191919;
     font-family: F1;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .form-group label {
+        font-size: smaller;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    .form-group label {
+        font-size: x-small;
+    }
 }
 
 .nav-link,th,.card-title {
@@ -19,8 +32,15 @@ body {
 }
 
 .card {
+    
     color: black;
     width: 75% !important;
+}
+
+.card-title {
+    background-color: red;
+    color: white;
+    border: 3px solid white;
 }
 
 ul {
@@ -35,8 +55,14 @@ h5 {
     padding: 3%;
 }
 
+#lstDetails li{
+    background-color: lightgray;
+}
+
 .form-group input[type=button] {
     margin-top: 4%;
+    border: 3px solid #808080;
+    background-color: red !important;
 }
 
 #tableWrapper::-webkit-scrollbar {
@@ -60,7 +86,8 @@ h5 {
 }
 
 #searchingForm {
-    margin-left: 1%
+    margin-left: 1%;
+    margin-right: 1%
 }
 
 #f1img {

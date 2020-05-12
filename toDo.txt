@@ -1,3 +1,0 @@
-- add img in CreateTeams.sql
-- add img in CreateDrivers.sql
-- onClick table cells
