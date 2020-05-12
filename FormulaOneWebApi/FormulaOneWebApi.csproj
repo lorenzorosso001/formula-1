@@ -82,9 +82,10 @@
   <ItemGroup>
     <Content Include="Images\f1.png" />
     <Content Include="Global.asax" />
-    <Content Include="index.css" />
     <Content Include="index.html" />
-    <Content Include="index.js" />
+    <Content Include="Libraries\vue.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Styles\index.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

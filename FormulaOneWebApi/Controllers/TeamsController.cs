@@ -25,7 +25,6 @@ namespace FormulaOneWebApi.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
 

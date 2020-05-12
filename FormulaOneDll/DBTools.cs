@@ -18,7 +18,8 @@ namespace FormulaOneDll
 {
     public class DbTools
     {
-        private const string WORKINGPATH = @"C:\Dati\C#\formula-1-lorenzorosso001\Dati\"; //DA CAMBIARE
+        //SET HERE YOUR .mdf PATH
+        private const string WORKINGPATH = @"C:\Dati\C#\formula-1-lorenzorosso001\Dati\"; 
         private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dati\C#\formula-1-lorenzorosso001\Dati\FormulaOne.mdf;Integrated Security=True";
 
         private Dictionary<int, Driver> drivers;

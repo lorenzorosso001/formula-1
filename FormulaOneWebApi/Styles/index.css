@@ -1,11 +1,11 @@
 ﻿@font-face {
     font-family: F1;
-    src: url(Fonts/Formula1-Regular.ttf);
+    src: url(../Fonts/Formula1-Regular.ttf);
 }
 
 @font-face {
     font-family: F1-bold;
-    src: url(Fonts/Formula1-Bold.ttf);
+    src: url(../Fonts/Formula1-Bold.ttf);
 }
 
 body {
@@ -13,6 +13,7 @@ body {
     /*background-color: #203A43;*/
     background-color: #191919;
     font-family: F1;
+    overflow-x: hidden;
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -66,13 +67,14 @@ h5 {
 }
 
 #tableWrapper::-webkit-scrollbar {
-    background-color: white;
-    width: 2%;
+    background-color: dimgrey;
+    width: 3%;
 }
 
 #tableWrapper {
     max-height: 30em;
     overflow-y: scroll;
+    overflow-x: hidden;
     margin-bottom: 1%;
 }
 
