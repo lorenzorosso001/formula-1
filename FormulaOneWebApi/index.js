@@ -38,6 +38,16 @@ $(function () {
                     _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
                 else if (item === "FirstDriver" || item === "SecondDriver")
                     _li.html(item + " : " + data[item].Lastname + " " + data[item].Firstname);
+                else if (item == "Img") {
+                    let _img = $('<img>');
+                    _img.addClass('img-responsive');
+                    _img.css({
+                        "width": "60%",
+                        "height": "60%"
+                    });
+                    _img.attr("src", data[item]);
+                    _img.appendTo(_li);
+                }
                 else
                     _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');
@@ -62,6 +72,17 @@ $(function () {
                     _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
                 else if (item == "Dob") 
                     _li.html(item + " : " + data[item].substring(0, 10));
+                else if (item == "Img") {
+                    let _img = $('<img>');
+                    _img.addClass('img-responsive');
+                    _img.css({
+                        "width": "60%",
+                        "height": "60%",
+                        "border-radius": "50%"
+                    });
+                    _img.attr("src", data[item]);
+                    _img.appendTo(_li);
+                }
                 else
                     _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');

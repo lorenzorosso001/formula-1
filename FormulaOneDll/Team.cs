@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace FormulaOneDll
         private string powerUnit;
         private string technicalChief;
         private string chassis;
+        private string img;
         private Driver firstDriver;
         private Driver secondDriver;
         #endregion
@@ -23,7 +25,7 @@ namespace FormulaOneDll
         #region Constructors
         public Team () { }
 
-        public Team(int id, string nome, string fullTeamName, Country country, string powerUnit, string technicalChief, string chassis, Driver firstDriver, Driver secondDriver)
+        public Team(int id, string nome, string fullTeamName, Country country, string powerUnit, string technicalChief, string chassis, string img, Driver firstDriver, Driver secondDriver)
         {
             this.ID = id;
             this.Name = nome;
@@ -32,6 +34,7 @@ namespace FormulaOneDll
             this.PowerUnit = powerUnit;
             this.TechnicalChief = technicalChief;
             this.Chassis = chassis;
+            this.img = img;
             this.FirstDriver = firstDriver;
             this.SecondDriver = secondDriver;
         }
@@ -45,6 +48,7 @@ namespace FormulaOneDll
         public string PowerUnit { get => powerUnit; set => powerUnit = value; }
         public string TechnicalChief { get => technicalChief; set => technicalChief = value; }
         public string Chassis { get => chassis; set => chassis = value; }
+        public string Img { get => img; set => img = value; }
         public Driver FirstDriver { get => firstDriver; set => firstDriver = value; }
         public Driver SecondDriver { get => secondDriver; set => secondDriver = value; }
         #endregion

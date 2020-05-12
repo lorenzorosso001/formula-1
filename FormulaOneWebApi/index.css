@@ -1,10 +1,26 @@
-﻿body {
+﻿@font-face {
+    font-family: F1;
+    src: url(Fonts/Formula1-Regular.ttf);
+}
+
+@font-face {
+    font-family: F1-bold;
+    src: url(Fonts/Formula1-Bold.ttf);
+}
+
+body {
     color: white;
     background-color: #203A43;
+    font-family: F1;
+}
+
+.nav-link,th,.card-title {
+    font-family: F1-bold;
 }
 
 .card {
     color: black;
+    width: 75% !important;
 }
 
 ul {
@@ -60,4 +76,15 @@ input[type=text]:focus {
     outline: none !important;
     border: 1px solid red;
     box-shadow: 0 0 10px #719ECE;
+}
+
+td img {
+    /*/width: 3.250em;
+    height: 3.125em;*/
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.td-img {
+    width: 6%;
 }

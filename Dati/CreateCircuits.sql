@@ -1,13 +1,11 @@
 CREATE TABLE [dbo].[Circuits]
 (
-	[id] [int] NOT NULL PRIMARY KEY IDENTITY,
+	[id] [int] NOT NULL PRIMARY KEY,
 	[name] [varchar](128) NOT NULL,
 	[nLaps] [INT] NOT NULL,
 	[length] [int] NOT NULL,
 	[recordLap] [varchar](16) NOT NULL
 );
-
-SET IDENTITY_INSERT [dbo].[Circuits] ON;
 
 INSERT INTO [dbo].[Circuits]
 (

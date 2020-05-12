@@ -162,7 +162,7 @@ namespace FormulaOneDll
                         {
                             Firstname = reader.GetString(1),
                             Lastname = reader.GetString(2),
-                            //image
+                            Img = reader.GetString(3),
                             Dob = Convert.ToDateTime(reader["dob"]),
                             PlaceOfBirthday = reader.GetString(5),
                             Country = Countries[reader.GetString(6)]
@@ -191,11 +191,11 @@ namespace FormulaOneDll
                     int Id = reader.GetInt32(0);
                     string Firstname = reader.GetString(1);
                     string Lastname = reader.GetString(2);
-                    //img
+                    string img = reader.GetString(3);
                     DateTime Dob = Convert.ToDateTime(reader["dob"]);
                     string PlaceOfBirthday = reader.GetString(5);
                     Country Country = Countries[reader.GetString(6)];
-                    Driver d = new Driver(Id, Firstname, Lastname, Dob, PlaceOfBirthday, Country);
+                    Driver d = new Driver(Id, Firstname, Lastname, img, Dob, PlaceOfBirthday, Country);
                     lstDrivers.Add(d);
                 };            
                 con.Close();
@@ -228,7 +228,7 @@ namespace FormulaOneDll
                         PowerUnit = reader.GetString(4),
                         TechnicalChief = reader.GetString(5),
                         Chassis = reader.GetString(6),
-                        //img
+                        Img = reader.GetString(7),
                         FirstDriver = this.Drivers[reader.GetInt32(8)],
                         SecondDriver = this.Drivers[reader.GetInt32(9)]
                     };

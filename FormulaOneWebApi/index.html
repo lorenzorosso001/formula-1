@@ -62,6 +62,7 @@
                             <th>Power unit</th>
                             <th>Technical chief</th>
                             <th>Chassis</th>
+                            <th>Image</th>
                             <th>First driver</th>
                             <th>Second driver</th>
                         </tr>
@@ -75,6 +76,7 @@
                             <td>{{item.PowerUnit}}</td>
                             <td>{{item.TechnicalChief}}</td>
                             <td>{{item.Chassis}}</td>
+                            <td class="td-img"><img class="img-responsive" :src="item.Img" /></td>
                             <td>{{item.FirstDriver.Firstname}} {{item.FirstDriver.Lastname}}</td>
                             <td>{{item.SecondDriver.Firstname}} {{item.SecondDriver.Lastname}}</td>
                         </tr>
@@ -88,6 +90,7 @@
                             <th>Last name</th>
                             <th>DOB</th>
                             <th>Country</th>
+                            <th>Image</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,6 +100,7 @@
                             <td>{{item.Lastname}}</td>
                             <td>{{item.Dob}}</td>
                             <td>{{item.Country.CountryName}}</td>
+                            <td class="td-img"><img class="img-responsive" :src="item.Img" style="border-radius: 50%"/></td>
                         </tr>
                     </tbody>
                 </table>
@@ -202,15 +206,15 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4 d-flex justify-content-center">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 d-flex justify-content-center">
                 <div class="card" id="detailsCard" style="width: 18rem; display: none;">
-                    <h5 class="card-title">Result:</h5>
+                    <h5 class="card-title" style="background-color:lightcoral">Result:</h5>
                     <ul id="lstDetails" class="list-group list-group-flush">
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-4"></div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
