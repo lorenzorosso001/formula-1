@@ -22,7 +22,7 @@ Microsoft SQL Server Management Studio 18 <br>
 You have to download the solution and open it in Visual Studio (I used 2019 version)
 Remember to adapt the path of your .mdf database location, changing the path line in DbTools.cs [FormulaOneDll]
 
-![Database Design](https://github.com/vallauri-ict/formula-1-lorenzorosso001/DB_Design.jpg)
+![Database Design](https://github.com/vallauri-ict/formula-1-lorenzorosso001/blob/master/DB_Design.jpg)
 
 ## Projects List
 
