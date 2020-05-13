@@ -61,9 +61,15 @@ h5 {
 }
 
 .form-group input[type=button] {
+    color: white;
     margin-top: 4%;
     border: 3px solid #808080;
     background-color: red !important;
+    transition: background-color 0.7s !important;
+}
+
+.form-group input[type=button]:hover {
+    background-color: darkred !important;
 }
 
 #tableWrapper::-webkit-scrollbar {
@@ -121,3 +127,4 @@ td img {
 .img-circuits {
     background-color: white;
 }
+

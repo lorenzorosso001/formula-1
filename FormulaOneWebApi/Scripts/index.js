@@ -38,7 +38,7 @@ $(function () {
                     _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
                 else if (item === "FirstDriver" || item === "SecondDriver")
                     _li.html(item + " : " + data[item].Lastname + " " + data[item].Firstname);
-                else if (item == "Img") {
+                else if (item === "Img") {
                     let _img = $('<img>');
                     _img.addClass('img-responsive');
                     _img.css({
@@ -70,9 +70,9 @@ $(function () {
                 let _li = $('<li>');
                 if (item === "Country")
                     _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
-                else if (item == "Dob") 
+                else if (item === "Dob") 
                     _li.html(item + " : " + data[item].substring(0, 10));
-                else if (item == "Img") {
+                else if (item === "Img") {
                     let _img = $('<img>');
                     _img.addClass('img-responsive');
                     _img.css({
@@ -95,7 +95,7 @@ $(function () {
     _btnCountryByCode.on('click', () => {
         if ($('#detailsCard').css("display") === "none")
             $('#detailsCard').css({ "display": "block" });
-        let code = $('#txtCodeCountry').val(); //code
+        let code = $('#txtCodeCountry').val().toUpperCase(); //code
         $('#txtCodeCountry').val("");
         //search country by code
         sendRequest('api/countries/' + code + '/details', 'get', (data) => {
@@ -103,7 +103,7 @@ $(function () {
             $('#lstDetails').empty();
             for (let item in data) {
                 let _li = $('<li>');
-                if (item == "Img") {
+                if (item === "Img") {
                     let _img = $('<img>');
                     _img.addClass('img-responsive');
                     _img.css({
@@ -133,7 +133,7 @@ $(function () {
             $('#lstDetails').empty();
             for (let item in data) {
                 let _li = $('<li>');
-                if (item == "Img") {
+                if (item === "Img") {
                     let _img = $('<img>');
                     _img.addClass('img-responsive');
                     _img.css({
@@ -168,7 +168,7 @@ $(function () {
                     _li.html(item + " : " + data[item].CountryName + " (" + data[item].CountryCode + ")");
                 else if (item === "Circuit")
                     _li.html(item + " : " + data[item].Name);
-                else if (item == "GrandPrixDate")
+                else if (item === "GrandPrixDate")
                     _li.html(item + " : " + data[item].substring(0, 10));
                 else
                     _li.html(item + " : " + data[item]);
