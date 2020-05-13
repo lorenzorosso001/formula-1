@@ -5,7 +5,7 @@
 Project about the management of the **F1 Championship 2019**.<br>
 
 ## Main features
-![Table](https://github.com/vallauri-ict/formula-1-lorenzorosso001/tree/master/FormulaOneWebApi/features/table.png)
+![Table](https://github.com/vallauri-ict/formula-1-lorenzorosso001/tree/master/FormulaOneWebApi/features/table.png) <br>
 ![Details](https://github.com/vallauri-ict/formula-1-lorenzorosso001/tree/master/FormulaOneWebApi/features/details.png)
 
 ## Docs
