@@ -1,7 +1,7 @@
 # WEB SERVICES
 ## FORMULA ONE PROJ – Rosso Lorenzo
 
-### TEAMS 
+###  TEAMS 
 **api/teams**
 ```
 [
@@ -11,10 +11,10 @@
 ```
 **api/teams/1/details**
 ```
-{<br/>
-  name: “Alfa Romeo”,<br/>
-  fullTeamName: “Alfa Romeo Racing”,<br/>
-  country: { countryCode: ”CH”, countryName: “Switzerland” }<br/>
+{
+  name: “Alfa Romeo”,
+  fullTeamName: “Alfa Romeo Racing”,
+  country: { countryCode: ”CH”, countryName: “Switzerland” }
   powerUnit: “Ferrari”,
   technicalChief: “Jan Monchaux”,
   chassis: “C38”,
@@ -26,104 +26,127 @@
     ]
 }
 ```
-<br/>
 
-###DRIVERS<br/>
-**api/drivers**<br/>
-[<br/>
-  --same as: api/drivers/id/details--,<br/>
-  --same as: api/drivers/id/details--<br/>
-  … <br/>
-]<br/>
-<br/>
-**api/drivers/1/details**<br/>
-{<br/>
-  firstName: “Lewis”,<br/>
-  lastName: “Hamilton”,<br/>
-  img: “...”,<br/>
-   dob: “07/01/1985”,<br/>
-  placeOfBirth: “Stevenage”,<br/>
-  Country: { countryCode: “GB”, countryName: “United Kingdom”}<br/>
-}<br/>
-<br/>
 
-###COUNTRIES<br/>
-**api/countries**<br/>
-[<br/>
-  --same as: api/countries/code/details --,<br/>
-  --same as: api/countries/code/details--<br/>
-  … <br/>
-]<br/>
-**api/countries/AF/details**<br/>
-{<br/>
-  countryCode: “AF”,<br/>
-  countryName: “Afghanistan”<br/>
-}<br/>
-<br/>
-
-###RACES<br/>
-**api/races**<br/>
-[<br/>
-  --same as: api/races/id/details --,<br/>
-  --same as: api/races/id/details--<br/>
-  … <br/>
-]<br/>
-**api/races/1/details**<br/>
-{<br/>
-  grandPrixName: “FORMULA 1 ROLEX AUSTRALIAN GRAND PRIX 2019”,<br/>
-  grandPrixDate: “17-03-2019”<br/>
-  country: { countryCode: “AU”, countryName: “Australia”}<br/>
-  circuit : {name: “Autodròmo Hermanos Rodriguez, nLaps: 71, length: 4304, recordLap: '1.18.741'}<br/>
-}<br/>
-<br/>
-###CIRCUITS<br/>
-**api/circuits**<br/>
-[<br/>
-  --same as: api/circuits/id/details --,<br/>
-  --same as: api/circuits/id/details--<br/>
-  … <br/>
-]<br/>
-**api/circuits/1/details**<br/>
-{<br/>
-  name: “Autódromo Hermanos Rodríguez”,<br/>
-  nLaps: 71<br/>
-  length: 4304,<br/>
-  recordLap: “1.18.741”,<br/>
-  img: “..."<br/>
-}<br/>
-<br/>
-###SCORES<br/>
-**api/scores**<br/>
-[<br/>
-  --same as: api/scores/id/details --,<br/>
-  --same as: api/scores/id/details--<br/>
-  … <br/>
-]<br/>
-**api/scores/1/details**<br/>
-{<br/>
-   score: 400,<br/>
-   details: “No accidents”<br/>
-}<br/>
-
-<br/>
-###RACES SCORES<br/>
-**api/racesscores**<br/>
-[<br/>
-  --same as: api/racesscores/id/details --,<br/>
-  --same as: api/racesscores/id/details--<br/>
-  … <br/>
-]<br/>
-**api/racesscores/1/details**<br/>
-{<br/>
-  driver: {firstname: “Kimi”, lastName: “Räikkönen” },<br/>
-  score: {score: 400, details: “No accidents”},<br/>
-  race: {<br/>
-  grandPrixName: “FORMULA 1 ROLEX AUSTRALIAN GRAND PRIX 2019”,<br/>
-  circuitName: “Melbourne Grand Prix Circuit”,<br/>
-  nLaps: 58,<br/>
-  grandPrixDate: “17-03-2019”<br/>
-  country: { countryCode: “AU”, countryName: “Australia”}<br/>
-    },<br/>
-fastestLap: “2'18"300”<br/>
+### DRIVERS
+**api/drivers**
+```
+[
+  --same as: api/drivers/id/details--,
+  --same as: api/drivers/id/details--
+  … 
+]
+```
+**api/drivers/1/details**
+```
+{
+  firstName: “Lewis”,
+  lastName: “Hamilton”,
+  img: “...”,
+   dob: “07/01/1985”,
+  placeOfBirth: “Stevenage”,
+  Country: { countryCode: “GB”, countryName: “United Kingdom”}
 }
+```
+
+
+### COUNTRIES
+**api/countries**
+```
+[
+  --same as: api/countries/code/details --,
+  --same as: api/countries/code/details--
+  … 
+]
+```
+**api/countries/AF/details**
+```
+{
+  countryCode: “AF”,
+  countryName: “Afghanistan”,
+  flag : "..."
+}
+```
+
+### RACES
+**api/races**
+```
+[
+  --same as: api/races/id/details --,
+  --same as: api/races/id/details--
+  … 
+]
+```
+**api/races/1/details**
+```
+{
+  grandPrixName: “FORMULA 1 ROLEX AUSTRALIAN GRAND PRIX 2019”,
+  grandPrixDate: “17-03-2019”
+  country: { countryCode: “AU”, countryName: “Australia”}
+  circuit : {name: “Autodròmo Hermanos Rodriguez, nLaps: 71, length: 4304, recordLap: '1.18.741'}
+}
+```
+
+### CIRCUITS
+**api/circuits**
+```
+[
+  --same as: api/circuits/id/details --,
+  --same as: api/circuits/id/details--
+  … 
+]
+```
+**api/circuits/1/details**
+```
+{
+  name: “Autódromo Hermanos Rodríguez”,
+  nLaps: 71
+  length: 4304,
+  recordLap: “1.18.741”,
+  img: “..."
+}
+```
+
+### SCORES
+**api/scores**
+```
+[
+  --same as: api/scores/id/details --,
+  --same as: api/scores/id/details--
+  … 
+]
+```
+**api/scores/1/details**
+```
+{
+   score: 400,
+   details: “No accidents”
+}
+```
+
+
+### RACES SCORES
+**api/racesscores**
+```
+[
+  --same as: api/racesscores/id/details --,
+  --same as: api/racesscores/id/details--
+  … 
+]
+```
+**api/racesscores/1/details**
+```
+{
+  driver: {firstname: “Kimi”, lastName: “Räikkönen” },
+  score: {score: 400, details: “No accidents”},
+  race: {
+	  grandPrixName: “FORMULA 1 ROLEX AUSTRALIAN GRAND PRIX 2019”,
+	  circuitName: “Melbourne Grand Prix Circuit”,
+	  nLaps: 58,
+	  grandPrixDate: “17-03-2019”
+	  country: { countryCode: “AU”, countryName: “Australia”}
+    },
+  fastestLap: “2'18"300”
+}
+```
 
