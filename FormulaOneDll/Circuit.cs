@@ -14,18 +14,20 @@ namespace FormulaOneDll
         private int nLaps;
         private int length;
         private string recordLap;
+        private string img;
         #endregion
 
         #region Constructors
         public Circuit(int id) { this.id = id; }
 
-        public Circuit(int id, string name, int nLaps, int length, string recordLap)
+        public Circuit(int id, string name, int nLaps, int length, string recordLap, string img)
         {
             this.Id = id;
             this.Name = name;
             this.NLaps = nLaps;
             this.Length = length;
             this.RecordLap = recordLap;
+            this.Img = img;
         }
         #endregion
 
@@ -35,6 +37,7 @@ namespace FormulaOneDll
         public int NLaps { get => nLaps; set => nLaps = value; }
         public int Length { get => length; set => length = value; }
         public string RecordLap { get => recordLap; set => recordLap = value; }
+        public string Img { get => img; set => img = value; }
         #endregion
 
         #region Methods

@@ -87,7 +87,8 @@
   name: “Autódromo Hermanos Rodríguez”,<br/>
   nLaps: 71<br/>
   length: 4304,<br/>
-  recordLap: “1.18.741”<br/>
+  recordLap: “1.18.741”,<br/>
+  img: “..."<br/>
 }<br/>
 <br/>
 ###SCORES<br/>
