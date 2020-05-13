@@ -28,20 +28,13 @@ body {
     }
 }
 
-.nav-link,th,.card-title {
+.nav-link,th {
     font-family: F1-bold;
 }
 
-.card {
-    
+#detailsModalLabel {
+    font-family: F1-bold;
     color: black;
-    width: 75% !important;
-}
-
-.card-title {
-    background-color: red;
-    color: white;
-    border: 3px solid white;
 }
 
 ul {
@@ -57,7 +50,7 @@ h5 {
 }
 
 #lstDetails li{
-    background-color: lightgray;
+    color:black;
 }
 
 .form-group input[type=button] {
@@ -87,10 +80,6 @@ h5 {
 #sticky-footer {
     flex-shrink: none;
     clear: both;
-}
-
-#detailsCard {
-    margin-bottom: 3%;
 }
 
 #searchingForm {

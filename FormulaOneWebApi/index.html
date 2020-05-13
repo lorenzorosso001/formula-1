@@ -45,8 +45,8 @@
                         <a class="nav-link" onclick="loadRaces()" href="#">Races</a>
                     </li>
                     <!--<li class="nav-item">
-                        <a class="nav-link" onclick="loadScores()" href="#">Scores</a>
-                    </li>-->
+                    <a class="nav-link" onclick="loadScores()" href="#">Scores</a>
+                </li>-->
                 </ul>
             </div>
         </nav>
@@ -100,7 +100,7 @@
                             <td>{{item.Lastname}}</td>
                             <td>{{item.Dob.substring(0,10)}}</td>
                             <td>{{item.Country.CountryName}}</td>
-                            <td class="td-img"><img class="img-responsive" :src="item.Img" style="border-radius: 50%"/></td>
+                            <td class="td-img"><img class="img-responsive" :src="item.Img" style="border-radius: 50%" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -137,7 +137,7 @@
                             <td>{{item.NLaps}}</td>
                             <td>{{item.Length}}</td>
                             <td>{{item.RecordLap}}</td>
-                            <td class="td-img"><img class="img-responsive img-circuits" :src="item.Img"/></td>
+                            <td class="td-img"><img class="img-responsive img-circuits" :src="item.Img" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -169,61 +169,74 @@
                 <div class="form-group">
                     <label for="txtIdTeam">Search Team by ID</label>
                     <input type="text" class="form-control" id="txtIdTeam">
-                    <input type="button" class="btn btn-danger" id="btnSearchTeamId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchTeamId" value="Search"  data-toggle="modal" data-target="#detailsModal"/>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="form-group">
                     <label for="txtIdDriver">Search Driver by ID</label>
                     <input type="text" class="form-control" id="txtIdDriver">
-                    <input type="button" class="btn btn-danger" id="btnSearchDriverId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchDriverId" value="Search"  data-toggle="modal" data-target="#detailsModal"/>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="form-group">
                     <label for="txtCodeCountry">Search Country by Code</label>
                     <input type="text" class="form-control" id="txtCodeCountry">
-                    <input type="button" class="btn btn-danger" id="btnSearchCountryCode" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchCountryCode" value="Search"  data-toggle="modal" data-target="#detailsModal"/>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="form-group">
                     <label for="txtIdTeam">Search Circuit by ID</label>
                     <input type="text" class="form-control" id="txtIdCircuit">
-                    <input type="button" class="btn btn-danger" id="btnSearchCircuitId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchCircuitId" value="Search"  data-toggle="modal" data-target="#detailsModal"/>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="form-group">
                     <label for="txtIdDriver">Search Race by ID</label>
                     <input type="text" class="form-control" id="txtIdRaces">
-                    <input type="button" class="btn btn-danger" id="btnSearchRaceId" value="Search" />
+                    <input type="button" class="btn btn-danger" id="btnSearchRaceId" value="Search" data-toggle="modal" data-target="#detailsModal"/>
                 </div>
             </div>
             <!--<div class="col-sm-2">
-            <div class="form-group">
-                <label for="txtCodeCountry">Search Score by ID</label>
-                <input type="text" class="form-control" id="txtIdScores">
-                <input type="button" class="btn btn-primary" id="btnSearchScoresId" value="Search" />
-            </div>-->
+        <div class="form-group">
+            <label for="txtCodeCountry">Search Score by ID</label>
+            <input type="text" class="form-control" id="txtIdScores">
+            <input type="button" class="btn btn-primary" id="btnSearchScoresId" value="Search" />
+        </div>-->
         </div>
 
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6 d-flex justify-content-center">
-                <div class="card" id="detailsCard" style="width: 18rem; display: none;">
-                    <h5 class="card-title">Result:</h5>
-                    <ul id="lstDetails" class="list-group list-group-flush">
-                    </ul>
+
+        <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!--<div class="card" id="detailsCard" style="width: 18rem; display: none;">-->
+                        <!--<h5 class="card-title">Result:</h5>-->
+                        <ul id="lstDetails" class="list-group list-group-flush">
+                        </ul>
+                        <!--</div>-->
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-3"></div>
         </div>
-    </div>
-    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-        <div class="container text-center">
-            <small>Copyright &copy; Rosso Lorenzo 5B INF</small>
-        </div>
-    </footer>
-</body>
-</html>
+
+        <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+                <small>Copyright &copy; Rosso Lorenzo 5B INF</small>
+            </div>
+        </footer>
+    </body>
+    </html>
