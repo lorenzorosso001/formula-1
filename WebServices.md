@@ -1,30 +1,31 @@
-##IMPLEMENTED WEB SERVICES
-#FORMULA ONE PROJ – Rosso Lorenzo
+# WEB SERVICES
+## FORMULA ONE PROJ – Rosso Lorenzo
 
-###TEAMS <br/>
-**api/teams**<br/>
-[<br/>
-  - same as: api/teams/id/details--,<br/>
-  - same as: api/teams/id/details--<br/>
-  … <br/>
-]<br/>
-
-**api/teams/1/details**<br/>
+### TEAMS 
+**api/teams**
+```
+[
+  - same as: api/teams/id/details--,
+  - same as: api/teams/id/details--
+]
+```
+**api/teams/1/details**
+```
 {<br/>
   name: “Alfa Romeo”,<br/>
   fullTeamName: “Alfa Romeo Racing”,<br/>
   country: { countryCode: ”CH”, countryName: “Switzerland” }<br/>
-  powerUnit: “Ferrari”,<br/>
-  technicalChief: “Jan Monchaux”,<br/>
-  chassis: “C38”,<br/>
-  img: “...”,<br/>
-  drivers:<br/>
-    [<br/>
-      { firstname: “Antonio”, lastName: “Giovinazzi” },<br/>
-      {firstname: “Kimi”, lastName: “Räikkönen” }<br/>
-    ]<br/>
-}<br/>
-
+  powerUnit: “Ferrari”,
+  technicalChief: “Jan Monchaux”,
+  chassis: “C38”,
+  img: “...”,
+  drivers:
+    [
+      { firstname: “Antonio”, lastName: “Giovinazzi” },
+      { firstname: “Kimi”, lastName: “Räikkönen” }
+    ]
+}
+```
 <br/>
 
 ###DRIVERS<br/>
