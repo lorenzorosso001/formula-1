@@ -4,6 +4,10 @@
 
 Project about the management of the **F1 Championship 2019**.<br>
 
+## Main features
+!(https://github.com/vallauri-ict/formula-1-lorenzorosso001/tree/master/FormulaOneWebApi/features/table.png)
+!(https://github.com/vallauri-ict/formula-1-lorenzorosso001/tree/master/FormulaOneWebApi/features/details.png)
+
 ## Docs
 
 - [C#](https://docs.microsoft.com/it-it/dotnet/csharp/), .NET solutions
