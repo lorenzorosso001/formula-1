@@ -129,7 +129,8 @@ namespace FormulaOneDll
                         Country c = new Country()
                         {
                             CountryCode = countryIsoCode,
-                            CountryName = reader.GetString(1)
+                            CountryName = reader.GetString(1),
+                            Img = reader.GetString(2)
                         };
                         this.countries.Add(countryIsoCode, c);
                     }

@@ -103,7 +103,18 @@ $(function () {
             $('#lstDetails').empty();
             for (let item in data) {
                 let _li = $('<li>');
-                _li.html(item + " : " + data[item]);
+                if (item == "Img") {
+                    let _img = $('<img>');
+                    _img.addClass('img-responsive');
+                    _img.css({
+                        "width": "25%",
+                        "height": "25%",
+                    });
+                    _img.attr("src", data[item]);
+                    _img.appendTo(_li);
+                }
+                else
+                    _li.html(item + " : " + data[item]);
                 _li.addClass('list-group-item');
                 _li.appendTo($('#lstDetails'));
             }

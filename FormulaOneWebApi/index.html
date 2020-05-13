@@ -98,7 +98,7 @@
                             <td>{{item.ID}}</td>
                             <td>{{item.Firstname}}</td>
                             <td>{{item.Lastname}}</td>
-                            <td>{{item.Dob}}</td>
+                            <td>{{item.Dob.substring(0,10)}}</td>
                             <td>{{item.Country.CountryName}}</td>
                             <td class="td-img"><img class="img-responsive" :src="item.Img" style="border-radius: 50%"/></td>
                         </tr>
@@ -109,12 +109,14 @@
                         <tr>
                             <th>Cod</th>
                             <th>Name</th>
+                            <th>Flag</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(item, index) in countries">
                             <td>{{item.CountryCode}}</td>
                             <td>{{item.CountryName}}</td>
+                            <td class="td-img"><img class="img-responsive" :src="item.Img" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -153,7 +155,7 @@
                         <tr v-for="(item, index) in races">
                             <td>{{item.Id}}</td>
                             <td>{{item.GrandPrixName}}</td>
-                            <td>{{item.GrandPrixDate}}</td>
+                            <td>{{item.GrandPrixDate.substring(0,10)}}</td>
                             <td>{{item.Country.CountryName}}</td>
                             <td>{{item.Circuit.Name}}</td>
                         </tr>
