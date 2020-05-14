@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Data.SqlClient;
 using System.IO;
-
-// Cercare questi pacchetti su nuget
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
 using System.ComponentModel;
-
 using Newtonsoft.Json;
 
 namespace FormulaOneDll
@@ -19,9 +15,10 @@ namespace FormulaOneDll
     public class DbTools
     {
         //SET HERE YOUR .mdf PATH
-        private const string WORKINGPATH = @"C:\Dati\C#\formula-1-lorenzorosso001\Dati\"; 
-        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dati\C#\formula-1-lorenzorosso001\Dati\FormulaOne.mdf;Integrated Security=True";
-
+        private const string WORKINGPATH = @"C:\Users\loren\Desktop\myProjects\formula-1\Dati\"; 
+        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\loren\Desktop\myProjects\formula-1\Dati\FormulaOne.mdf;Integrated Security=True";
+		//
+		
         private Dictionary<int, Driver> drivers;
         private Dictionary<string, Country> countries;
         private List<Team> teams;
